@@ -25,6 +25,7 @@ import carpet.utils.Translations;
 @Mixin(SettingsManager.class)
 public class SettingsManagerMixin {
 
+    @Unique
     private static final ThreadLocal<carpet.api.settings.CarpetRule<?>> CURRENT_RULE = new ThreadLocal<>();
 
     @Inject(method = "displayRuleMenu", at = @At("HEAD"))
@@ -36,7 +37,14 @@ public class SettingsManagerMixin {
     private void clearCurrentRule(CommandSourceStack source, CarpetRule<?> rule, CallbackInfoReturnable<Integer> cir) {
         CURRENT_RULE.remove();
     }
+    @Unique
+    private static final String RECORD_OPERATOR = "igny.settings.record.operator";
 
+    @Unique
+    private static final String CHANGE_TIME = "igny.settings.record.change_time";
+
+    @Unique
+    private static final String RAW_VALUE = "igny.settings.record.raw_value";
     @Inject(
             method = "displayRuleMenu",
             at = @At(
@@ -65,9 +73,9 @@ public class SettingsManagerMixin {
 
                 if (record.isValid()) {
                     carpet.utils.Messenger.m(source, new Object[]{
-                            "g  操作源: ", "w " + record.sourceName,
-                            "g , 变更时间: ", "w " + record.formattedTime,
-                            "g , 原始值: ", "w " + objectToString(record.defaultValue)
+                            "g  "+Translations.tr(RECORD_OPERATOR,"Operator")+": ", "w " + record.sourceName,
+                            "g  "+Translations.tr(CHANGE_TIME,"ChangeTime")+": ", "w " + record.formattedTime,
+                            "g  "+Translations.tr(RAW_VALUE,"RawValue")+": ", "w " + objectToString(record.rawValue)
                     });
                 }
             }
@@ -75,6 +83,7 @@ public class SettingsManagerMixin {
     }
 
 
+    @Unique
     private String objectToString(Object obj) {
         if (obj == null) return "null";
         if (obj instanceof Boolean) return (Boolean) obj ? "true" : "false";

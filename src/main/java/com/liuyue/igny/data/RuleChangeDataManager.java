@@ -117,15 +117,15 @@ public class RuleChangeDataManager {
 
     public static class RuleChangeRecord {
         public final String ruleName;
-        public final Object defaultValue;
+        public final Object rawValue;
         public final Object currentValue;
         public final String sourceName;
         public final long timestamp;
         public final String formattedTime;
 
-        public RuleChangeRecord(String ruleName, Object defaultValue, Object currentValue,String sourceName, long timestamp) {
+        public RuleChangeRecord(String ruleName, Object rawValue, Object currentValue,String sourceName, long timestamp) {
             this.ruleName = ruleName;
-            this.defaultValue = defaultValue;
+            this.rawValue = rawValue;
             this.currentValue = currentValue;
             this.sourceName = sourceName;
             this.timestamp = timestamp;
@@ -140,7 +140,7 @@ public class RuleChangeDataManager {
         // 检查记录是否有效（没有 null 值）
         public boolean isValid() {
             return ruleName != null && !ruleName.isEmpty() &&
-                    defaultValue != null &&
+                    rawValue != null &&
                     currentValue != null &&
                     sourceName != null && !sourceName.isEmpty() &&
                     formattedTime != null && !formattedTime.isEmpty();
@@ -150,7 +150,7 @@ public class RuleChangeDataManager {
         @SuppressWarnings("unused")
         private RuleChangeRecord() {
             this.ruleName = "";
-            this.defaultValue = null;
+            this.rawValue = null;
             this.currentValue = null;
             this.sourceName = "";
             this.timestamp = 0;
