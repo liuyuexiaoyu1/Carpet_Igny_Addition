@@ -63,19 +63,19 @@
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `SURVIVAL`， `FEATURE`
 
-### 海绵吸收岩浆 (SpongeCanAbsorbLava)
+### 湿海绵吸收岩浆 (WetSpongeCanAbsorbLava)
 
-使海绵（湿海绵）碰到岩浆可以吸收岩浆，true：干海绵吸收岩浆（变为湿海绵），wet_sponge: 湿海绵吸收岩浆（变为海绵），false: 海绵（湿海绵）不吸收岩浆.
+使湿海绵碰到岩浆可以吸收岩浆（会变为海绵）。
 
-- 类型: `string`
+- 类型: `boolean`
 - 默认值: `false`
-- 参考选项: `false`, `true`, `wet_sponge`
+- 参考选项: `false`, `true`
 - 分类: `IGNY`, `SURVIVAL`， `FEATURE`
  
 ### 丢弃玩家末影箱物品指令权限 (CommandPlayerEnderChestDrop)
 
 控制玩家丢弃末影箱物品的权限等级
-用法: /player <玩家名> drop all - 丢弃背包+末影箱物品(如有权限)，用法: /player <玩家名> drop inventory 仅丢弃背包物品;  /player <玩家名> drop enderchest - 仅丢弃末影箱物品，无权限时: 'all' 仅丢弃背包物品，否则: 'all' 同时丢弃背包和末影箱物品，真人玩家: 只有OP可以丢弃其末影箱物品，假玩家: 遵循上述权限设置
+用法: /player <玩家名> drop all - 丢弃背包+末影箱物品(如有权限)，用法: /player <玩家名> drop inventory 仅丢弃背包物品;  /player <玩家名> drop enderchest - 仅丢弃末影箱物品，无权限时: 'all' 仅丢弃背包物品，否则: 'all' 同时丢弃背包和末影箱物品，真人玩家: 只有OP可以丢弃其末影箱物品，假玩家: 遵循上述权限设置。
 
 - 类型: `string`
 - 默认值: `false`
@@ -87,22 +87,22 @@
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
-- 分类: `IGNY`, `COMMAND`， `FEATURE`
+- 分类: `IGNY`, `SURIVAL`， `FEATURE`
 
 ### 悬空冰破坏产生水 (FloatingIceWater)
 
-当冰下没有方块时，不使用精准采集破坏冰也能生成水
+当冰下没有方块时，不使用精准采集破坏冰也能生成水。
 
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
-- 分类: `IGNY`, `COMMAND`， `FEATURE`
+- 分类: `IGNY`, `SURIVAL`， `FEATURE`
 
 ### 僵尸猪灵不会自然生成在下界传送门 (NoZombifiedPiglinNetherPortalSpawn)
 
-当难度不为和平时，僵尸猪灵将不能自然生成在下界传送门中
+当难度不为和平时，僵尸猪灵将不能自然生成在下界传送门中。
 
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
-- 分类: `IGNY`, `COMMAND`， `FEATURE`
+- 分类: `IGNY`, `SURIVAL`， `FEATURE`

@@ -113,7 +113,7 @@ public abstract class BlockBehaviourNeighborChangedMixin {
 
     @Unique
     private boolean shouldAbsorb(FluidState fluidState) {
-        return fluidState.is(FluidTags.LAVA) && Objects.equals(IGNYSettings.SpongeCanAbsorbLava, "wet_sponge");
+        return fluidState.is(FluidTags.LAVA) && IGNYSettings.WetSpongeCanAbsorbLava;
     }
 
 }

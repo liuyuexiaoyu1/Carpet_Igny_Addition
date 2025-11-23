@@ -32,9 +32,9 @@ public class IGNYSettings
     public static boolean FakePlayerCanPush = true;
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE},
-            options = {"true", "false","wet_sponge"}
+            options = {"true", "false"}
     )
-    public static String SpongeCanAbsorbLava = "false";
+    public static Boolean WetSpongeCanAbsorbLava = false;
     @Rule(
             categories = {IGNY, COMMAND, FEATURE},
             options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
