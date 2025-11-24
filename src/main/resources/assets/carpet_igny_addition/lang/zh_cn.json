@@ -33,5 +33,7 @@
   "carpet.rule.FloatingIceWater.name": "悬空冰破坏产生水",
   "carpet.rule.FloatingIceWater.desc": "冰在任何位置融化都会变成水，即使是悬在空中",
   "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.name": "僵尸猪灵不会自然生成在下界传送门",
-  "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.desc": "当难度不为和平时，僵尸猪灵将不能自然生成在下界传送门中"
+  "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.desc": "当难度不为和平时，僵尸猪灵将不能自然生成在下界传送门中",
+  "carpet.rule.ProjectileDuplicationReintroduced.name": "重新引入投掷物复制",
+  "carpet.rule.ProjectileDuplicationReintroduced.desc": "重新引入1.21.2以下的投掷物残留刻复制行为"
 }

@@ -44,7 +44,7 @@
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
 
 ### 显示规则变更历史 (ShowRuleChangeHistory)
 
@@ -62,7 +62,7 @@
 - 类型: `boolean`
 - 默认值: `true`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
 
 ### 湿海绵吸收岩浆 (WetSpongeCanAbsorbLava)
 
@@ -71,8 +71,8 @@
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
- 
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
+
 ### 丢弃玩家末影箱物品指令权限 (CommandPlayerEnderChestDrop)
 
 控制玩家丢弃末影箱物品的权限等级
@@ -81,14 +81,14 @@
 - 类型: `string`
 - 默认值: `false`
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
-- 分类: `IGNY`, `COMMAND`， `FEATURE`
+- 分类: `IGNY`, `COMMAND`, `FEATURE`
 
 ### 玩家在监守者附近不会被给予黑暗效果 (NoWardenDarkness)
 
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
 
 ### 悬空冰破坏产生水 (FloatingIceWater)
 
@@ -97,7 +97,7 @@
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
 
 ### 僵尸猪灵不会自然生成在下界传送门 (NoZombifiedPiglinNetherPortalSpawn)
 
@@ -106,4 +106,13 @@
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `SURVIVAL`， `FEATURE`
+- 分类: `IGNY`, `SURVIVAL`, `FEATURE`
+
+### 重新引入投掷物复制 (ProjectileDuplicationReintroduced)
+
+重新引入1.21.2以下的投掷物残留刻复制行为（可视作恢复药水、鸡蛋、雪球等复制行为）。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`

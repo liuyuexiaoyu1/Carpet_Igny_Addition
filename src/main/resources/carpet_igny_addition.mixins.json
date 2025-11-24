@@ -16,7 +16,10 @@
     "rule.PlayerLevitationFreeShulkerBullet.ShulkerBulletMixin",
     "rule.PlayerMiningFatigueFreeGuardian.GuardianAttackGoalMixin",
     "rule.SpongeCanAbsorbLava.BlockBehaviourNeighborChangedMixin",
-    "rule.WardenNeverDig.WardenMixin"
+    "rule.WardenNeverDig.WardenMixin",
+    "rule.ProjectileDuplicationReintroduced.EntityInvoker",
+    "rule.ProjectileDuplicationReintroduced.ProjectileInvoker",
+    "rule.ProjectileDuplicationReintroduced.ThrowableProjectileMixin"
   ],
   "client": [],
   "injectors": {

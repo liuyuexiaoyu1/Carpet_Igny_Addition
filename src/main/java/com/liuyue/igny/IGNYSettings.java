@@ -55,4 +55,11 @@ public class IGNYSettings
             options = {"false", "true"}
     )
     public static Boolean NoZombifiedPiglinNetherPortalSpawn = false;
+    //#if MC>=12102
+    //$$ @Rule(
+    //$$        categories = {IGNY,FEATURE},
+    //$$        options = {"false", "true"}
+    //$$ )
+    //$$ public static Boolean ProjectileDuplicationReintroduced = false;
+    //#endif
 }

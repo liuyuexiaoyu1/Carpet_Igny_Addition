@@ -23,5 +23,6 @@
   "carpet.rule.CommandPlayerEnderChestDrop.extra.6": "Fake players: Follows the permission setting above",
   "carpet.rule.NoWardenDarkness.desc":"Warden attacks no longer apply darkness effect to players.",
   "carpet.rule.FloatingIceWater.desc": "Ice melts into water anywhere, even when floating in air.",
-  "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.desc": "Prevents Zombified Piglins from naturally spawning at Nether portals"
+  "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.desc": "Prevents Zombified Piglins from naturally spawning at Nether portals",
+  "carpet.rule.ProjectileDuplicationReintroduced.desc": "Reintroducing the projectile residual tick replication behavior from Minecraft versions below 1.21.2"
 }

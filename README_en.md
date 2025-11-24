@@ -1,6 +1,6 @@
 # Carpet-Igny-Addition
 
-[中文](README.md) | **English** 
+[中文](README.md) | **English**
 
 ## Required Mods
 
@@ -114,3 +114,12 @@ Zombified piglins will not naturally spawn in nether portals when difficulty is 
 - Default value: `false`
 - Suggested options: `false`, `true`
 - Categories: `IGNY`, `SURVIVAL`, `FEATURE`
+
+### ProjectileDuplicationReintroduced
+
+Reintroduces the projectile residual tick duplication behavior from versions below 1.21.2 (can be considered as restoring duplication behaviors for potions, eggs, snowballs, etc.).
+
+- Type: `boolean`
+- Default Value: `false`
+- Suggested Options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
