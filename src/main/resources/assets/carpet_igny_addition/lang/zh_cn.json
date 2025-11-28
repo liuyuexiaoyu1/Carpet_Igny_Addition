@@ -37,5 +37,9 @@
   "carpet.rule.ProjectileDuplicationReintroduced.name": "重新引入投掷物复制",
   "carpet.rule.ProjectileDuplicationReintroduced.desc": "重新引入1.21.2以下的投掷物残留刻复制行为",
   "carpet.rule.SkeletonsPickupSwordsReintroduced.name": "重新引入骷髅捡剑",
-  "carpet.rule.SkeletonsPickupSwordsReintroduced.desc": "重新引入1.21.4以下的骷髅捡剑行为"
+  "carpet.rule.SkeletonsPickupSwordsReintroduced.desc": "重新引入1.21.4以下的骷髅捡剑行为",
+  "carpet.rule.MinecartMotionFix.name": "重新引入矿车跨纬度传递动量",
+  "carpet.rule.MinecartMotionFix.desc": "重新引入1.21-1.21.1版本中矿车携带乘客跨纬度会在传送tick给予乘客矿车的动量到1.21.2以上版本",
+  "carpet.rule.TntMinecartEmptyDamageSourceFix.name": "TNT矿车空伤害来源修复",
+  "carpet.rule.TntMinecartEmptyDamageSourceFix.desc": "修复TNT矿车引爆时传入的伤害来源为null，导致TNT矿车无法继承伤害来源的属性（可视作重新引入TNT矿车掠夺）"
 }

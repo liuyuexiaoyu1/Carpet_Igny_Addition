@@ -65,7 +65,7 @@ public class IGNYSettings
     )
     public static Boolean NoZombifiedPiglinNetherPortalSpawn = false;
 
-    //#if MC>=12102
+    //#if MC >= 12102
     //$$ @Rule(
     //$$        categories = {IGNY,FEATURE},
     //$$        options = {"false", "true"}
@@ -73,11 +73,27 @@ public class IGNYSettings
     //$$ public static Boolean ProjectileDuplicationReintroduced = false;
     //#endif
 
-    //#if MC>=12104
+    //#if MC >= 12104
     //$$ @Rule(
     //$$        categories = {IGNY,FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
     //$$ public static Boolean SkeletonsPickupSwordsReintroduced = false;
+    //#endif
+
+    //#if MC >= 12102
+    //$$ @Rule(
+    //$$        categories = {IGNY,FEATURE},
+    //$$        options = {"false", "true"}
+    //$$ )
+    //$$ public static Boolean MinecartMotionFix = false;
+    //#endif
+
+    //#if MC < 12109
+    @Rule(
+            categories = {IGNY,FEATURE},
+            options = {"false", "true"}
+    )
+    public static Boolean TntMinecartEmptyDamageSourceFix = false;
     //#endif
 }

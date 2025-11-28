@@ -11,6 +11,8 @@
     "carpet.commands.PlayerCommandPermissionsMixin",
     "rule.FakePlayerCanPush.EntityMixin",
     "rule.FloatingIceWater.IceBlockMixin",
+    "rule.MinecartMotionFix.EntityMixin",
+    "rule.MinecartMotionFix.NetherPortalBlockMixin",
     "rule.NoWardenDarkness.WardenMixin",
     "rule.NoZombifiedPiglinNetherPortalSpawn.ZombifiedPiglinMixin",
     "rule.PlayerLevitationFreeShulkerBullet.ShulkerBulletMixin",
@@ -21,6 +23,8 @@
     "rule.SkeletonsPickupSwordsReintroduced.MobInvoker",
     "rule.SkeletonsPickupSwordsReintroduced.MobMixin",
     "rule.SpongeCanAbsorbLava.BlockBehaviourNeighborChangedMixin",
+    "rule.TntMinecartEmptyDamageSourceFix.EntityInvoker",
+    "rule.TntMinecartEmptyDamageSourceFix.MinecartTNTMixin",
     "rule.WardenNeverDig.WardenMixin"
   ],
   "client": [],

@@ -126,9 +126,27 @@ Reintroduces the projectile residual tick duplication behavior from versions bel
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-### SkeletonsPickupSwordsReintroduced `MC>=1.21.2`
+### SkeletonsPickupSwordsReintroduced `MC>=1.21.4`
 
 Reintroducing the skeleton pickup swords behavior from Minecraft versions below 1.21.4
+
+- Type: `boolean`
+- Default Value: `false`
+- Suggested Options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
+
+### MinecartMotionFix `MC>=1.21.2`
+
+Ports the feature from versions 1.21-1.21.1 where minecars carrying passengers transfer their momentum to passengers during the teleport tick when crossing dimensions to version 1.21.2 and above.
+
+- Type: `boolean`
+- Default Value: `false`
+- Suggested Options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
+
+### TntMinecartEmptyDamageSourceFix `MC<1.21.9`
+
+Fixed the source of empty damage in TNT minecarts.
 
 - Type: `boolean`
 - Default Value: `false`

@@ -127,3 +127,21 @@
 - 默认值: `false`
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
+
+### 重新引入矿车跨纬度传递动量 (MinecartMotionFix) `MC>=1.21.2`
+
+重新引入1.21-1.21.1版本中矿车携带乘客跨纬度会在传送tick给予乘客矿车的动量到1.21.2以上版本。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`
+
+### TNT矿车空伤害来源修复 (TntMinecartEmptyDamageSourceFix) `MC<1.21.9`
+
+修复TNT矿车引爆时传入的伤害来源为null，导致TNT矿车无法继承伤害来源的属性（可视作重新引入TNT矿车掠夺）。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`

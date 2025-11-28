@@ -25,5 +25,7 @@
   "carpet.rule.FloatingIceWater.desc": "Ice melts into water anywhere, even when floating in air.",
   "carpet.rule.NoZombifiedPiglinNetherPortalSpawn.desc": "Prevents Zombified Piglins from naturally spawning at Nether portals in the Overworld",
   "carpet.rule.ProjectileDuplicationReintroduced.desc": "Reintroducing the projectile residual tick replication behavior from Minecraft versions below 1.21.2",
-  "carpet.rule.SkeletonsPickupSwordsReintroduced.desc": "Reintroducing the skeleton pickup swords behavior from Minecraft versions below 1.21.4"
+  "carpet.rule.SkeletonsPickupSwordsReintroduced.desc": "Reintroducing the skeleton pickup swords behavior from Minecraft versions below 1.21.4",
+  "carpet.rule.MinecartMotionFix.desc": "Ports the feature from versions 1.21-1.21.1 where minecars carrying passengers transfer their momentum to passengers during the teleport tick when crossing dimensions to version 1.21.2 and above",
+  "carpet.rule.TntMinecartEmptyDamageSourceFix.desc": "Fixed the source of empty damage in TNT minecarts"
 }
