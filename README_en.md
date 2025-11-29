@@ -155,7 +155,7 @@ Fixed the source of empty damage in TNT minecarts.
 
 ### FakePlayerBoatYawFix
 
-Fake players correct yaw when riding boats. [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
+Fake players will not correct yaw when riding boats. [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
 
 - Type: `boolean`
 - Default Value: `false`

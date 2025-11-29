@@ -43,7 +43,7 @@
   "carpet.rule.TntMinecartEmptyDamageSourceFix.name": "TNT矿车空伤害来源修复",
   "carpet.rule.TntMinecartEmptyDamageSourceFix.desc": "修复TNT矿车引爆时传入的伤害来源为null，导致TNT矿车无法继承伤害来源的属性（可视作重新引入TNT矿车掠夺）",
   "carpet.rule.FakePlayerBoatYawFix.name": "假玩家乘船不纠正偏航角修复",
-  "carpet.rule.FakePlayerBoatYawFix.desc": "假人在骑乘船时会纠正偏航角",
+  "carpet.rule.FakePlayerBoatYawFix.desc": "假人在骑乘船时不会纠正偏航角",
   "carpet.rule.KillFakePlayerRemoveVehicle.name": "移除假玩家时移除载具",
   "carpet.rule.KillFakePlayerRemoveVehicle.desc": "移除假玩家时移除其乘坐的载具",
   "carpet.rule.KillFakePlayerRemoveVehicle.extra.0": "cantrade：当载具上没有村民或者流浪商人时移除载具，其他与true选项保持一致"

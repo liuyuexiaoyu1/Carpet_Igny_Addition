@@ -148,7 +148,7 @@
 
 ### 假玩家乘船不纠正偏航角修复 (FakePlayerBoatYawFix)
 
-假人在骑乘船时会纠正偏航角。 [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
+假玩家在骑乘船时不会纠正偏航角。 [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
 
 - 类型: `boolean`
 - 默认值: `false`
