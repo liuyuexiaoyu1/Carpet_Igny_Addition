@@ -10,6 +10,7 @@
     "carpet.commands.EntityPlayerActionPackMixin",
     "carpet.commands.PlayerCommandPermissionsMixin",
     "carpet.fix.FakePlayerBoatYawFix.EntityPlayerMPFakeMixin",
+    "rule.KillFakePlayerRemoveVehicle.EntityPlayerMPFakeMixin",
     "rule.FakePlayerCanPush.EntityMixin",
     "rule.FloatingIceWater.IceBlockMixin",
     "rule.MinecartMotionFix.EntityMixin",

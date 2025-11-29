@@ -161,3 +161,12 @@ Fake players correct yaw when riding boats. [#2100](https://github.com/gnembon/f
 - Default Value: `false`
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`, `BUGFIX`
+
+### KillFakePlayerRemoveVehicle
+
+When removing a fake player, remove the vehicle they are riding in.
+
+- Type: `boolean`
+- Default Value: `true`
+- Suggested Options: `true`, `cantrade`, `false`
+- Categories: `IGNY`, `FEATURE`

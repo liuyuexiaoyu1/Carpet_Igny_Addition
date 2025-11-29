@@ -28,5 +28,6 @@
   "carpet.rule.SkeletonsPickupSwordsReintroduced.desc": "Reintroducing the skeleton pickup swords behavior from Minecraft versions below 1.21.4",
   "carpet.rule.MinecartMotionFix.desc": "Ports the feature from versions 1.21-1.21.1 where minecars carrying passengers transfer their momentum to passengers during the teleport tick when crossing dimensions to version 1.21.2 and above",
   "carpet.rule.TntMinecartEmptyDamageSourceFix.desc": "Fixed the source of empty damage in TNT minecarts",
-  "carpet.rule.FakePlayerBoatYawFix.desc": "Fake players correct yaw when riding boats."
+  "carpet.rule.FakePlayerBoatYawFix.desc": "Fake players correct yaw when riding boats.",
+  "carpet.rule.KillFakePlayerRemoveVehicle.desc": "When removing a fake player, remove the vehicle they are riding in."
 }

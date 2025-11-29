@@ -148,9 +148,18 @@
 
 ### 假玩家乘船不纠正偏航角修复 (FakePlayerBoatYawFix)
 
-假人在骑乘船时会纠正偏航角 [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
+假人在骑乘船时会纠正偏航角。 [#2100](https://github.com/gnembon/fabric-carpet/issues/2100)
 
 - 类型: `boolean`
 - 默认值: `false`
 - 参考选项: `false`, `true`
-- 分类: `IGNY`, `FEATURE` `BUGFIX`
+- 分类: `IGNY`, `FEATURE`, `BUGFIX`
+
+### 移除假玩家时移除载具 (KillFakePlayerRemoveVehicle)
+
+移除假玩家时移除其乘坐的载具。
+
+- 类型: `boolean`
+- 默认值: `true`
+- 参考选项: `true`, `cantrade`, `false`
+- 分类: `IGNY`, `FEATURE`

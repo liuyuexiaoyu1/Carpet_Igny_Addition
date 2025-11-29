@@ -102,4 +102,10 @@ public class IGNYSettings
             options = {"false", "true"}
     )
     public static Boolean FakePlayerBoatYawFix = false;
+
+    @Rule(
+            categories = {IGNY,FEATURE},
+            options = {"false", "cantrade", "true"}
+    )
+    public static String KillFakePlayerRemoveVehicle = "true";
 }
