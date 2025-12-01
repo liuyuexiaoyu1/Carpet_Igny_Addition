@@ -148,7 +148,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他与
 
 ### 蜡烛可放在不完整方块上 (CandlePlaceOnIncompleteBlock)
 
-蜡烛可直接放在不完整方块上。
+蜡烛可直接放在上表面不完整方块上。
 
 - 类型: `boolean`
 - 默认值: `false`
