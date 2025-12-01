@@ -53,6 +53,7 @@
   "carpet.rule.CommandFixnotepitch.name": "音符盒音高归零指令权限",
   "carpet.rule.CommandFixnotepitch.desc": "将范围内的音符盒的音高调整为零",
   "carpet.rule.CommandFixnotepitech.extra.0": "是否产生方块更新由FixnotepitchUpdateBlock规则控制",
+  "carpet.rule.FixnotepitchUpdateBlock.name":"Fixnotepitch指令产生方块更新",
   "carpet.rule.FixnotepitchUpdateBlock.desc":"控制CommandFixnotepitech是否产生方块更新",
   "carpet.rule.HappyGhastNoClip.name": "快乐恶魂无碰撞",
   "carpet.rule.HappyGhastNoClip.desc": "快乐恶魂有玩家骑乘时无视方块碰撞",
