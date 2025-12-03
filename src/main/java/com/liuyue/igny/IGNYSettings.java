@@ -153,4 +153,9 @@ public class IGNYSettings
     )
     public static String SetDefaultArgument = "ops";
 
+    @Rule(
+            categories = {IGNY, FEATURE},
+            options = {"false", "true"}
+    )
+    public static Boolean ZombifiedPiglinDropLootIfAngryReintroduced = false;
 }

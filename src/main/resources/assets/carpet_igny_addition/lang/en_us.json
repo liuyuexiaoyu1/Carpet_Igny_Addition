@@ -39,5 +39,7 @@
   "carpet.rule.HappyGhastNoClip.desc":"Happy Ghast has players who ride while ignoring block collisions",
   "carpet.rule.OnlyPlayerCreateNetherPortal.desc": "Only players can create nether portal",
   "carpet.rule.NoWitherEffect.desc": "Wither, Wither Skeleton, and Wither Rose cannot grant players the Wither effect",
-  "carpet.rule.SetDefaultArgument.desc": "In `/carpet <rule> <value> <setDefault>`, the command permission for the `<setDefault>` argument is controlled, allowing the rule to be directly set as the default"
+  "carpet.rule.SetDefaultArgument.desc": "In `/carpet <rule> <value> <setDefault>`, the command permission for the `<setDefault>` argument is controlled, allowing the rule to be directly set as the default",
+  "carpet.rule.ZombifiedPiglinDropLootIfAngryReintroduced.desc": "When enabled, zombified piglins that die within 100 game ticks of becoming angry or targeting a player will drop loot and xp orbs as if killed by a player",
+  "carpet.rule.ZombifiedPiglinDropLootIfAngryReintroduced.extra.0": "It reverts the behavior back to mc < 25w02a (1.21.5 snapshot) and unfixes MC-56653"
 }

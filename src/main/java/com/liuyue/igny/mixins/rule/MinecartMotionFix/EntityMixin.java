@@ -1,8 +1,8 @@
 package com.liuyue.igny.mixins.rule.MinecartMotionFix;
 
-import com.liuyue.igny.utils.EmptyTarget;
+import com.liuyue.igny.utils.compat.DummyClass;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(EmptyTarget.class)
+@Mixin(DummyClass.class)
 public abstract class EntityMixin {
 }

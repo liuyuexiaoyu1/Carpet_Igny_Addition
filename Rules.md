@@ -208,3 +208,16 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 默认值: `false`
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
 - 分类: `IGNY`, `COMMAND`, `FEATURE`
+
+### 重新引入僵尸猪灵在愤怒时掉落战利品 (ZombifiedPiglinDropLootIfAngryReintroduced)
+
+开启后，僵尸猪灵在愤怒、设置玩家为攻击目标的100gt内死亡，将可掉落如被玩家击杀一样的掉落物和经验球。
+
+它将相关表现还原回了 MC < 25w02a（1.21.5 的快照）的表现，撤销了 MC-56653 的修复。
+
+此功能来自Carpet Tis Addition，将游戏版本1.21.9+的zombifiedPiglinDropLootIfAngryReintroduced规则向下移植到游戏版本1.21.5+。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`

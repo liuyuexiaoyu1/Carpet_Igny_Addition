@@ -40,7 +40,8 @@
     "rule.SpongeCanAbsorbLava.BlockBehaviourNeighborChangedMixin",
     "rule.TntMinecartEmptyDamageSourceFix.EntityInvoker",
     "rule.TntMinecartEmptyDamageSourceFix.MinecartTNTMixin",
-    "rule.WardenNeverDig.WardenMixin"
+    "rule.WardenNeverDig.WardenMixin",
+    "rule.ZombifiedPiglinDropLootIfAngryReintroduced.ZombifiedPiglinEntityMixin"
   ],
   "client": [
     "rule.HappyGhastNoClip.LevelRendererMixin"

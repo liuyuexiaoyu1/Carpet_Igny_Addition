@@ -50,8 +50,8 @@
   "carpet.rule.KillFakePlayerRemoveVehicle.extra.0": "cantrade：当载具上没有村民或者流浪商人时移除载具，其他实体保持默认",
   "carpet.rule.CandlePlaceOnIncompleteBlock.name": "蜡烛放置在不完整方块上",
   "carpet.rule.CandlePlaceOnIncompleteBlock.desc": "蜡烛可以直接放置在上表面不完整方块上",
-  "carpet.rule.CommandFixnotepitch.name": "音符盒音高归零指令权限",
-  "carpet.rule.CommandFixnotepitch.desc": "将范围内的音符盒的音高调整为零",
+  "carpet.rule.CommandFixnotepitch.name": "音符盒音高指令权限",
+  "carpet.rule.CommandFixnotepitch.desc": "调整范围内的音符盒的音高",
   "carpet.rule.CommandFixnotepitech.extra.0": "是否产生方块更新由FixnotepitchUpdateBlock规则控制",
   "carpet.rule.FixnotepitchUpdateBlock.name":"Fixnotepitch指令产生方块更新",
   "carpet.rule.FixnotepitchUpdateBlock.desc":"控制CommandFixnotepitech是否产生方块更新",
@@ -62,5 +62,8 @@
   "carpet.rule.NoWitherEffect.name": "没有凋零效果",
   "carpet.rule.NoWitherEffect.desc": "凋零、凋零骷髅、凋零玫瑰不能给予玩家凋零效果",
   "carpet.rule.SetDefaultArgument.name": "设置默认参数权限",
-  "carpet.rule.SetDefaultArgument.desc": "在/carpet <rule> <value> <setDefault>中，控制<setDefault>参数的指令权限，用于让规则直接设为默认"
+  "carpet.rule.SetDefaultArgument.desc": "在/carpet <rule> <value> <setDefault>中，控制<setDefault>参数的指令权限，用于让规则直接设为默认",
+  "carpet.rule.ZombifiedPiglinDropLootIfAngryReintroduced.name": "重新引入僵尸猪灵在愤怒时掉落战利品",
+  "carpet.rule.ZombifiedPiglinDropLootIfAngryReintroduced.desc": "开启后，僵尸猪灵在愤怒、设置玩家为攻击目标的100gt内死亡，将可掉落如被玩家击杀一样的掉落物和经验球",
+  "carpet.rule.ZombifiedPiglinDropLootIfAngryReintroduced.extra.0": "它将相关表现还原回了 MC < 25w02a（1.21.5 的快照）的表现，撤销了 MC-56653 的修复"
 }

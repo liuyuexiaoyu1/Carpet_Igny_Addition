@@ -177,7 +177,7 @@ Control `CommandFixnotepitech` to sending block update.
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggeted Options: `false`, `true`
+- Suggested Options: `false`, `true`
 - Categories: `IGNY`, `COMMAND`, `CREATIVE`, `FEATURE`
 
 ### HappyGhastNoClip `MC>1.21.6`
@@ -186,7 +186,7 @@ Happy Ghast has players who ride while ignoring block collisions and can pass th
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggeted Options: `false`, `true`
+- Suggested Options: `false`, `true`
 - Categories: `IGNY`, `SURIVIAL`, `FEATURE`
 
 ### OnlyPlayerCreateNetherPortal
@@ -195,7 +195,7 @@ Only players can create nether portal.
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggeted Options: `false`, `true`
+- Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
 ### NoWitherEffect
@@ -204,7 +204,7 @@ Wither, Wither Skeleton, and Wither Rose cannot grant players the Wither effect.
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggeted Options: `false`, `true`
+- Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
 ### SetDefaultArgument
@@ -213,5 +213,18 @@ In command`/carpet <rule> <value> <setDefault>`, the command permission for the 
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggeted Options: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
+- Suggested Options: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
 - Categories: `IGNY`, `COMMAND`, `FEATURE`
+
+### ZombifiedPiglinDropLootIfAngryReintroduced
+
+When enabled, zombified piglins that die within 100 game ticks of becoming angry or targeting a player will drop loot and xp orbs as if killed by a player
+
+It reverts the behavior back to mc < 25w02a (1.21.5 snapshot) and unfixes [MC-56653](https://bugs.mojang.com/browse/MC-56653)
+
+This feature comes from Carpet Tis Addition, which backports the zombifiedPiglinDropLootIfAngryReintroduced rule from game version 1.21.9+ to game version 1.21.5+
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
