@@ -48,7 +48,7 @@
   "carpet.rule.KillFakePlayerRemoveVehicle.name": "移除假玩家时移除载具",
   "carpet.rule.KillFakePlayerRemoveVehicle.desc": "移除假玩家时移除其乘坐的载具",
   "carpet.rule.KillFakePlayerRemoveVehicle.extra.0": "cantrade：当载具上没有村民或者流浪商人时移除载具，其他与false选项保持一致",
-  "carpet.rile.CandlePlaceOnIncompleteBlock.name": "蜡烛放置在不完整方块上",
+  "carpet.rule.CandlePlaceOnIncompleteBlock.name": "蜡烛放置在不完整方块上",
   "carpet.rule.CandlePlaceOnIncompleteBlock.desc": "蜡烛可以直接放置在上表面不完整方块上",
   "carpet.rule.CommandFixnotepitch.name": "音符盒音高归零指令权限",
   "carpet.rule.CommandFixnotepitch.desc": "将范围内的音符盒的音高调整为零",
