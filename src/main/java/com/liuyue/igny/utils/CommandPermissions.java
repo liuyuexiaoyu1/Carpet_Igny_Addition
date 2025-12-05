@@ -17,7 +17,7 @@ public class CommandPermissions {
             return source.hasPermission(2);
         }
 
-        String ruleValue = IGNYSettings.CommandPlayerEnderChestDrop;
+        String ruleValue = IGNYSettings.commandPlayerEnderChestDrop;
 
         return switch (ruleValue.toLowerCase()) {
             case "true" -> true;

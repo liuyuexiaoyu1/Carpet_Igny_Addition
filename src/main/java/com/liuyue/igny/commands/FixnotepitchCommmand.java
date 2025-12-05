@@ -21,7 +21,7 @@ public class FixnotepitchCommmand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("fixnotepitch")
-                        .requires(source -> CommandPermissions.canUseCommand(source, IGNYSettings.CommandFixnotepitch))
+                        .requires(source -> CommandPermissions.canUseCommand(source, IGNYSettings.commandFixnotepitch))
                         .then(Commands.argument("pos1", BlockPosArgument.blockPos())
                                 .then(Commands.argument("pos2", BlockPosArgument.blockPos())
                                         .executes(context -> executeCommand(context, 0))
@@ -73,7 +73,7 @@ public class FixnotepitchCommmand {
                             int currentNote = state.getValue(BlockStateProperties.NOTE);
                             if (currentNote != targetPitch) {
                                 BlockState newState = state.setValue(BlockStateProperties.NOTE, targetPitch);
-                                if (IGNYSettings.FixnotepitchUpdateBlock) {
+                                if (IGNYSettings.fixnotepitchUpdateBlock) {
                                     level.setBlock(pos, newState, 3);
                                 } else {
                                     level.setBlock(pos, newState, 2 | 16);

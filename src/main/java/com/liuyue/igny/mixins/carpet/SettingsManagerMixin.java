@@ -55,7 +55,7 @@ public abstract class SettingsManagerMixin {
     )
     private void addOperationInfoAfterCurrentValue(
             CommandSourceStack source, CarpetRule<?> rule, CallbackInfoReturnable<Integer> cir) {
-        if (!IGNYSettings.ShowRuleChangeHistory) {
+        if (!IGNYSettings.showRuleChangeHistory) {
             return;
         }
 

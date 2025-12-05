@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EntityPlayerMPFakeMixin {
     @Inject(method = "tick",at= @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;tick()V"))
     private void tick(CallbackInfo ci) {
-        if (IGNYSettings.FakePlayerBoatYawFix) {
+        if (IGNYSettings.fakePlayerBoatYawFix) {
             EntityPlayerMPFake fakePlayer = (EntityPlayerMPFake) (Object) this;
             if (fakePlayer.getVehicle() instanceof Boat boat) {
                 fakePlayer.setYRot(boat.getYRot());

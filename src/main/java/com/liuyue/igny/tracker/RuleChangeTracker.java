@@ -12,7 +12,7 @@ public class RuleChangeTracker {
     }
 
     public static void ruleChanged(CommandSourceStack source, carpet.api.settings.CarpetRule<?> rule, String userInput) {
-        if(IGNYSettings.ShowRuleChangeHistory) {
+        if(IGNYSettings.showRuleChangeHistory) {
             String sourceName = getSourceName(source);
             long timestamp = System.currentTimeMillis();
 

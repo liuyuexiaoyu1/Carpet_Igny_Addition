@@ -144,7 +144,7 @@ public abstract class SettingsManagerMixin {
     }
     @Unique
     private boolean canUseSetDefault(CommandSourceStack source){
-        return CommandPermissions.canUseCommand(source, IGNYSettings.SetDefaultArgument);
+        return CommandPermissions.canUseCommand(source, IGNYSettings.setDefaultArgument);
     }
 
     @Unique

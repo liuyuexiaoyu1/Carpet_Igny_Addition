@@ -11,66 +11,66 @@ public class IGNYSettings
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE}
     )
-    public static boolean WardenNeverDig = false;
+    public static boolean wardenNeverDig = false;
 
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE}
     )
-    public static boolean PlayerLevitationFreeShulkerBullet = false;
+    public static boolean playerLevitationFreeShulkerBullet = false;
 
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE}
     )
-    public static boolean PlayerMiningFatigueFreeGuardian = false;
+    public static boolean playerMiningFatigueFreeGuardian = false;
 
     @Rule(
             categories = {IGNY,COMMAND,FEATURE},
             options = {"true", "false"}
     )
-    public static boolean ShowRuleChangeHistory = false;
+    public static boolean showRuleChangeHistory = false;
 
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE},
             options = {"true", "false"}
     )
-    public static boolean FakePlayerCanPush = true;
+    public static boolean fakePlayerCanPush = true;
 
     @Rule(
             categories = {IGNY,SURVIVAL,FEATURE},
             options = {"true", "false"}
     )
-    public static Boolean WetSpongeCanAbsorbLava = false;
+    public static Boolean wetSpongeCanAbsorbLava = false;
 
     @Rule(
             categories = {IGNY, COMMAND, FEATURE},
             options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
     )
-    public static String CommandPlayerEnderChestDrop = "ops";
+    public static String commandPlayerEnderChestDrop = "ops";
 
     @Rule(
             categories = {IGNY, SURVIVAL, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean NoWardenDarkness = false;
+    public static Boolean noWardenDarkness = false;
 
     @Rule(
             categories = {IGNY, SURVIVAL, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean FloatingIceWater = false;
+    public static Boolean floatingIceWater = false;
 
     @Rule(
             categories = {IGNY, SURVIVAL, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean NoZombifiedPiglinNetherPortalSpawn = false;
+    public static Boolean noZombifiedPiglinNetherPortalSpawn = false;
 
     //#if MC >= 12102
     //$$ @Rule(
     //$$        categories = {IGNY,FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean ProjectileDuplicationReintroduced = false;
+    //$$ public static Boolean projectileDuplicationReintroduced = false;
     //#endif
 
     //#if MC >= 12104
@@ -78,7 +78,7 @@ public class IGNYSettings
     //$$        categories = {IGNY,FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean SkeletonsPickupSwordsReintroduced = false;
+    //$$ public static Boolean skeletonsPickupSwordsReintroduced = false;
     //#endif
 
     //#if MC >= 12102
@@ -86,7 +86,7 @@ public class IGNYSettings
     //$$        categories = {IGNY,FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean MinecartMotionFix = false;
+    //$$ public static Boolean minecartMotionFix = false;
     //#endif
 
     //#if MC < 12109
@@ -94,71 +94,71 @@ public class IGNYSettings
             categories = {IGNY,FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean TntMinecartEmptyDamageSourceFix = false;
+    public static Boolean tntMinecartEmptyDamageSourceFix = false;
     //#endif
 
     @Rule(
             categories = {IGNY,FEATURE,BUGFIX},
             options = {"false", "true"}
     )
-    public static Boolean FakePlayerBoatYawFix = false;
+    public static Boolean fakePlayerBoatYawFix = false;
 
     @Rule(
             categories = {IGNY,FEATURE},
             options = {"false", "cantrade", "true"}
     )
-    public static String KillFakePlayerRemoveVehicle = "true";
+    public static String killFakePlayerRemoveVehicle = "true";
 
     @Rule(
             categories = {IGNY,FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean CandlePlaceOnIncompleteBlock = false;
+    public static Boolean candlePlaceOnIncompleteBlock = false;
 
     @Rule(
             categories = {IGNY, COMMAND, CREATIVE, FEATURE},
             options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
     )
-    public static String CommandFixnotepitch = "ops";
+    public static String commandFixnotepitch = "ops";
 
     @Rule(
             categories = {IGNY, COMMAND, CREATIVE, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean FixnotepitchUpdateBlock = false;
+    public static Boolean fixnotepitchUpdateBlock = false;
 
     //#if MC >= 12106
     //$$ @Rule(
     //$$        categories = {IGNY,SURVIVAL,FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean HappyGhastNoClip = false;
+    //$$ public static Boolean happyGhastNoClip = false;
     //#endif
 
     @Rule(
             categories = {IGNY, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean OnlyPlayerCreateNetherPortal = false;
+    public static Boolean onlyPlayerCreateNetherPortal = false;
 
     @Rule(
             categories = {IGNY, FEATURE},
             options = {"false", "true"}
     )
-    public static Boolean NoWitherEffect = false;
+    public static Boolean noWitherEffect = false;
 
     @Rule(
             categories = {IGNY, COMMAND, FEATURE},
             options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
     )
-    public static String SetDefaultArgument = "ops";
+    public static String setDefaultArgument = "ops";
 
     //#if MC>=12105
     //$$ @Rule(
     //$$        categories = {IGNY, FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean ZombifiedPiglinDropLootIfAngryReintroduced = false;
+    //$$ public static Boolean zombifiedPiglinDropLootIfAngryReintroduced = false;
     //#endif
 
     //#if MC>=12106
@@ -166,6 +166,12 @@ public class IGNYSettings
     //$$        categories = {IGNY, FEATURE},
     //$$        options = {"false", "true"}
     //$$ )
-    //$$ public static Boolean LocatorBarNoFakePlayer = false;
+    //$$ public static Boolean locatorBarNoFakePlayer = false;
     //#endif
+
+    @Rule(
+            categories = {IGNY, COMMAND, FEATURE},
+            options = {"false", "true"}
+    )
+    public static Boolean fakePlayerLoginLogoutNoChatInfo = false;
 }
