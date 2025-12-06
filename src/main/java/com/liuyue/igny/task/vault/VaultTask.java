@@ -274,7 +274,13 @@ public class VaultTask implements ITask {
 
     private void handleLoggingOut() {
         if (currentFakePlayer != null) {
-            logoutPlayerName = currentFakePlayer.getGameProfile().getName();
+            logoutPlayerName = currentFakePlayer.getGameProfile()
+                    //#if MC>=12109
+                    //$$ .name();
+                    //#else
+                    .getName();
+                    //#endif
+
             VAULT_FAKE_NAMES.remove(logoutPlayerName);
             if (currentFakePlayer instanceof carpet.fakes.ServerPlayerInterface spi) {
                 spi.getActionPack().start(EntityPlayerActionPack.ActionType.USE, null);
