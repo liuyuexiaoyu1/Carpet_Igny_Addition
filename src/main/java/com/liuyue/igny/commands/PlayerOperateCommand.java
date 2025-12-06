@@ -125,7 +125,7 @@ public class PlayerOperateCommand {
 
             Component stopButton = Component.literal("§c[停止]")
                     .withStyle(style -> style
-                                    //#if MC>=12108
+                                    //#if MC>=12105
                                     //$$ .withClickEvent(new ClickEvent.RunCommand(stopCmd))
                                     //$$ .withHoverEvent(new HoverEvent.ShowText(Component.literal("§7点击停止任务")))
                                     //#else
