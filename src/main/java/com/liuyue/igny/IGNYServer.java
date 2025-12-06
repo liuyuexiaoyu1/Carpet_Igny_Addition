@@ -6,6 +6,7 @@ import carpet.CarpetServer;
 
 import carpet.api.settings.SettingsManager;
 
+import com.liuyue.igny.commands.ClearLightQueueCommand;
 import com.liuyue.igny.commands.FixnotepitchCommmand;
 import com.liuyue.igny.commands.PlayerOperateCommand;
 import com.liuyue.igny.task.ITask;
@@ -59,6 +60,7 @@ public class IGNYServer implements CarpetExtension {
     ) {
         FixnotepitchCommmand.register(dispatcher);
         PlayerOperateCommand.register(dispatcher);
+        ClearLightQueueCommand.register(dispatcher);
     }
 
     @Override

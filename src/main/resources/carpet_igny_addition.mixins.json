@@ -1,23 +1,24 @@
 {
-  "required": false,
+  "required": true,
   "minVersion": "0.8",
   "package": "com.liuyue.igny.mixins",
   "compatibilityLevel": "{{COMPATIBILITY_LEVEL}}",
   "mixins": [
-    "EntityPlayerMPFakeMixin",
     "MinecraftServerMixin",
+    "carpet.EntityPlayerMPFakeMixin",
     "carpet.SettingsManagerMixin",
     "carpet.accessors.EntityPlayerActionPackAccessor",
     "carpet.commands.EntityPlayerActionPackMixin",
     "carpet.commands.PlayerCommandMixin",
     "carpet.features.SetDefaultArgument.SettingsManagerMixin",
     "carpet.fix.FakePlayerBoatYawFix.EntityMixin",
+    "commands.ThreadedLevelLightEngineAccessor",
     "compat.accessor.fapi.AbstractChanneledNetworkAddonAccessor",
     "compat.fapi.AbstractNetworkAddonMixin",
     "rule.candlePlaceOnIncompleteBlock.CandleBlockMixin",
     "rule.fakePlayerCanPush.EntityMixin",
-    "rule.fakePlayerLoginLogoutNoInfo.PlayerListMixin",
-    "rule.fakePlayerLoginLogoutNoInfo.ServerGamePacketListenerImplMixin",
+    "rule.fakePlayerLoginLogoutNoChatInfo.PlayerListMixin",
+    "rule.fakePlayerLoginLogoutNoChatInfo.ServerGamePacketListenerImplMixin",
     "rule.floatingIceWater.IceBlockMixin",
     "rule.happyGhastNoClip.BlockItemMixin",
     "rule.happyGhastNoClip.EntityMixin",
@@ -53,6 +54,6 @@
     "rule.happyGhastNoClip.LevelRendererMixin"
   ],
   "injectors": {
-    "defaultRequire": 0
+    "defaultRequire": 1
   }
 }

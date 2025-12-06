@@ -180,7 +180,7 @@ Control `commandFixnotepitech` to sending block update.
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `COMMAND`, `CREATIVE`, `FEATURE`
 
-### happyGhastNoClip `MC>1.21.6` `🐛Bata`
+### happyGhastNoClip `MC>1.21.6`
 
 Happy Ghast has players who ride while ignoring block collisions and can pass through blocks.
 
@@ -189,7 +189,7 @@ Happy Ghast has players who ride while ignoring block collisions and can pass th
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `SURIVIAL`, `FEATURE`
 
-### onlyPlayerCreateNetherPortal `🐛Bata`
+### onlyPlayerCreateNetherPortal
 
 Only players can create nether portal.
 
@@ -198,7 +198,7 @@ Only players can create nether portal.
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-### noWitherEffect `🐛Bata`
+### noWitherEffect
 
 Wither, Wither Skeleton, and Wither Rose cannot grant players the Wither effect.
 
@@ -207,7 +207,7 @@ Wither, Wither Skeleton, and Wither Rose cannot grant players the Wither effect.
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-### setDefaultArgument `🐛Bata`
+### setDefaultArgument
 
 In command`/carpet <rule> <value> <setDefault>`, the command permission for the `<setDefault>` argument is controlled, allowing the rule to be directly set as the default.
 
@@ -216,7 +216,7 @@ In command`/carpet <rule> <value> <setDefault>`, the command permission for the 
 - Suggested Options: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
 - Categories: `IGNY`, `COMMAND`, `FEATURE`
 
-### zombifiedPiglinDropLootIfAngryReintroduced `MC>=1.21.5` `🐛Bata`
+### zombifiedPiglinDropLootIfAngryReintroduced `MC>=1.21.5`
 
 When enabled, zombified piglins that die within 100 game ticks of becoming angry or targeting a player will drop loot and xp orbs as if killed by a player
 
@@ -229,7 +229,7 @@ This feature comes from Carpet Tis Addition, which backports the zombifiedPiglin
 - Suggested options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-### locatorBarNoFakePlayer `MC>=1.21.6` `🐛Bata`
+### locatorBarNoFakePlayer `MC>=1.21.6`
 
 The locator bar does not show fake players.
 
@@ -238,11 +238,20 @@ The locator bar does not show fake players.
 - Suggested Options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-### commandPlayerOperate `🐛Bata`
+### fakePlayerLoginLogoutNoChatInfo
+
+When a fake player logs in and logs out, the prompt of login and logout will not be displayed in the chat historys
+
+- Type: `boolean`
+- Default Value: `false`
+- Suggested Options: `false`, `true`
+- Categories: `IGNY`, `COMMAND`, `FEATURE`
+
+### commandPlayerOperate
 
 Use the /playerOperate command to manage player actions.
 
 - Type: `boolean`
 - Default Value: `false`
-- Suggested Options: `false`, `true`
-- Categories: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
+- Suggested Options: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
+- Categories: `IGNY`, `COMMAND`, `FEATURE`

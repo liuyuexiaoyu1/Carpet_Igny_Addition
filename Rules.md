@@ -173,7 +173,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `COMMAND`, `CREATIVE`, `FEATURE`
 
-### 快乐恶魂无碰撞 (happyGhastNoClip) `MC>1.21.6` `🐛Bata`
+### 快乐恶魂无碰撞 (happyGhastNoClip) `MC>1.21.6`
 
 快乐恶魂有玩家骑乘时无视方块碰撞。
 
@@ -182,7 +182,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `SURVIVAL`, `FEATURE`
 
-### 只有玩家实体创建下界传送门 (onlyPlayerCreateNetherPortal) `🐛Bata`
+### 只有玩家实体创建下界传送门 (onlyPlayerCreateNetherPortal)
 
 只有玩家实体可以创建下界传送门。
 
@@ -191,7 +191,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
 
-### 没有凋零效果 (noWitherEffect) `🐛Bata`
+### 没有凋零效果 (noWitherEffect)
 
 凋零、凋零骷髅、凋零玫瑰不能给予玩家凋零效果。
 
@@ -200,7 +200,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
 
-### 设置默认参数权限 (setDefaultArgument) `🐛Bata`
+### 设置默认参数权限 (setDefaultArgument)
 
 在`/carpet <rule> <value> <setDefault>`指令中，控制`setDefault`参数的指令权限，用于让规则直接设为默认。
 
@@ -209,7 +209,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
 - 分类: `IGNY`, `COMMAND`, `FEATURE`
 
-### 重新引入僵尸猪灵在愤怒时掉落战利品 (zombifiedPiglinDropLootIfAngryReintroduced) `MC>=1.21.5` `🐛Bata`
+### 重新引入僵尸猪灵在愤怒时掉落战利品 (zombifiedPiglinDropLootIfAngryReintroduced) `MC>=1.21.5`
 
 开启后，僵尸猪灵在愤怒、设置玩家为攻击目标的100gt内死亡，将可掉落如被玩家击杀一样的掉落物和经验球。
 
@@ -222,7 +222,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
 
-### 定位栏无假玩家 (locatorBarNoFakePlayer) `MC>=1.21.6` `🐛Bata`
+### 定位栏无假玩家 (locatorBarNoFakePlayer) `MC>=1.21.6`
 
 定位栏不显示假玩家。
 
@@ -231,7 +231,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
 
-### 假玩家登录登出无聊天信息 (fakePlayerLoginLogoutNoChatInfo) `🐛Bata`
+### 假玩家登录登出无聊天信息 (fakePlayerLoginLogoutNoChatInfo)
 
 假玩家登录登出不在聊天栏显示登录登出的提示。
 
@@ -240,11 +240,11 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `COMMAND`, `FEATURE`
 
-### 玩家动作指令权限 (commandPlayerOperate) `🐛Bata`
+### 玩家动作指令权限 (commandPlayerOperate)
 
 playerManager命令来控制玩家动作。
 
 - 类型: `boolean`
 - 默认值: `false`
-- 参考选项: `false`, `true`
-- 分类: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
+- 参考选项: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
+- 分类: `IGNY`, `COMMAND`, `FEATURE`

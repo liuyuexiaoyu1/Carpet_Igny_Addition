@@ -1,4 +1,4 @@
-package com.liuyue.igny.mixins.rule.fakePlayerLoginLogoutNoInfo;
+package com.liuyue.igny.mixins.rule.fakePlayerLoginLogoutNoChatInfo;
 
 import carpet.patches.EntityPlayerMPFake;
 import com.liuyue.igny.IGNYSettings;
@@ -7,44 +7,37 @@ import com.liuyue.igny.task.TaskManager;
 import com.liuyue.igny.task.vault.VaultTask;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.server.players.PlayerList;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
-
-@Mixin(value = ServerGamePacketListenerImpl.class,priority = 1500)
-public class ServerGamePacketListenerImplMixin {
-    @Shadow
-    public ServerPlayer player;
-
-    @WrapOperation(
-            method="removePlayerFromWorld",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/server/players/PlayerList;broadcastSystemMessage(Lnet/minecraft/network/chat/Component;Z)V")
-    )
-    private void disableLogoutMessage(PlayerList instance, Component component, boolean bl, Operation<Void> original) {
-        if (this.player instanceof EntityPlayerMPFake) {
-            String playerName = this.player.getName().getString();
+@Mixin(value = PlayerList.class,priority = 1500)
+public class PlayerListMixin {
+    @WrapOperation(method="placeNewPlayer",at = @At(value = "INVOKE", target = "Lnet/minecraft/server/players/PlayerList;broadcastSystemMessage(Lnet/minecraft/network/chat/Component;Z)V"))
+    private void broadcastSystemMessage(PlayerList instance, Component component, boolean bl, Operation<Void> original,@Local(argsOnly = true) ServerPlayer serverPlayer) {
+        if (serverPlayer instanceof EntityPlayerMPFake) {
+            String fakeName = serverPlayer.getName().getString();
 
             boolean isVaultFake = false;
 
             for (ITask task : TaskManager.getAllActiveTasks()) {
                 if (!(task instanceof VaultTask vaultTask)) continue;
 
-                if (playerName.equals(vaultTask.getLogoutPlayerName())) {
+                if (fakeName.equals(vaultTask.getPendingFakeName())) {
                     isVaultFake = true;
                     break;
                 }
 
                 ServerPlayer current = vaultTask.getCurrentFakePlayer();
-                if (current != null && current == this.player) {
+                if (current != null && current == serverPlayer) {
                     isVaultFake = true;
                     break;
                 }
             }
+
             if (isVaultFake || IGNYSettings.fakePlayerLoginLogoutNoChatInfo) {
                 return;
             }

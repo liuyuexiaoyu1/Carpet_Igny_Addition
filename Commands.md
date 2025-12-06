@@ -18,7 +18,15 @@
 
 ### 效果
 - `/player Operate <player>/list ..`
-    - `...vault [<maxCycles>]`
+    - `...vault [<maxCycles>]` 使假玩家执行开宝库的任务
         - 使`<player>`长按右键100游戏刻后下线，并在游戏刻21刻后召唤一个`<player>_1`假人，视角和坐标不变，`<player>_1`假人继续长按右键100刻后下线，21刻后召唤`<player>_2`，一直循环到`<player>_[<maxCycles>]`，`[<maxCycles>]`默认为130
     - `...stop`
         - 停止该玩家的所有任务 
+
+## 清空光照队列 (clearlightqueue)
+
+### 语法
+- `/clearlightqueue`
+
+### 效果
+- 直接清空待处理的光照队列。

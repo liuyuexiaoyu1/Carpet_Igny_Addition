@@ -183,4 +183,10 @@ public class IGNYSettings
             options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
     )
     public static String commandPlayerOperate = "ops";
+
+    @Rule(
+            categories = {IGNY, COMMAND, FEATURE},
+            options = {"false", "true", "ops", "0", "1", "2", "3", "4"}
+    )
+    public static String commandClearLightQueue = "ops";
 }

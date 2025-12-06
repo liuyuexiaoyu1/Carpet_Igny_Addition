@@ -44,5 +44,6 @@
   "carpet.rule.zombifiedPiglinDropLootIfAngryReintroduced.extra.0": "It reverts the behavior back to mc < 25w02a (1.21.5 snapshot) and unfixes MC-56653",
   "carpet.rule.locatorBarNoFakePlayer.desc": "The locator bar does not show fake players",
   "carpet.rule.fakePlayerLoginLogoutNoChatInfo.desc": "Fake players do not send login/logout messages to the chat",
-  "carpet.rule.commandPlayerOperate.desc": "Use the /playerOperate command to manage player actions"
+  "carpet.rule.commandPlayerOperate.desc": "Use the /playerOperate command to manage player actions",
+  "carpet.rule.commandClearLightQueue.desc": "Clears the light queue of the world"
 }

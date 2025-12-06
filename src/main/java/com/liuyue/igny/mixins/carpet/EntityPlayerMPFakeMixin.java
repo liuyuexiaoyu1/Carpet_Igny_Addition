@@ -1,4 +1,4 @@
-package com.liuyue.igny.mixins;
+package com.liuyue.igny.mixins.carpet;
 
 import carpet.patches.EntityPlayerMPFake;
 import com.liuyue.igny.task.ITask;
@@ -11,11 +11,9 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.server.players.GameProfileCache;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 @Mixin(EntityPlayerMPFake.class)
 public abstract class EntityPlayerMPFakeMixin {

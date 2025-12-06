@@ -38,20 +38,17 @@ public abstract class AbstractNetworkAddonMixin {
 
             Field field = settingsClass.getField("fakePlayerSpawnMemoryLeakFix");
             Object supplierObj = field.get(null);
-
-            if (supplierObj == null) {
-                return false;
+            if (supplierObj instanceof java.util.function.Supplier<?>) {
+                Object result = ((java.util.function.Supplier<?>) supplierObj).get();
+                if (result instanceof Boolean) {
+                    return (Boolean) result;
+                }
             }
-
-            MethodHandles.Lookup lookup = MethodHandles.privateLookupIn(supplierObj.getClass(), MethodHandles.lookup());
-            MethodHandle mh = lookup.findVirtual(supplierObj.getClass(), "get", MethodType.methodType(Object.class));
-            return (Boolean) mh.invoke(supplierObj);
-
+            return false;
 
         } catch (ClassNotFoundException ignored) {
             return null;
-        } catch (NoSuchFieldException | IllegalAccessException |
-                 NoSuchMethodException | java.lang.reflect.InvocationTargetException e) {
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
             return null;
         } catch (Throwable e) {
