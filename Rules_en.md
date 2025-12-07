@@ -265,7 +265,7 @@ Clears the light queue of the world.
 - Suggested Options: `false`, `true`, `ops`, `0`, `1`, `2`, `3`, `4`
 - Categories: `IGNY`, `COMMAND`, `FEATURE`
 
-### fakePlayerNoBreakingCoolDown  `🐛Bata`
+### fakePlayerNoBreakingCoolDown  `🐛Beta`
 
 Fake players keep breaking without a cooldown for breaking.
 
