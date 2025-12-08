@@ -3,8 +3,12 @@ package com.liuyue.igny;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.metadata.ModDependency;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,12 +18,15 @@ public class IGNYServerMod implements ModInitializer {
     public static final List<String> CARPET_ADDITION_MOD_IDS;
 
     static {
-        CARPET_ADDITION_MOD_IDS = FabricLoader.getInstance().getAllMods()
-                .stream()
-                .map(ModContainer::getMetadata)
-                .map(ModMetadata::getId)
-                .filter(id -> id.contains("carpet") && id.contains("addition"))
-                .collect(Collectors.toList());
+        ArrayList<String> mods = new ArrayList<>();
+        for (ModContainer modContainer : FabricLoader.getInstance().getAllMods()) {
+            ModMetadata metadata = modContainer.getMetadata();
+            Collection<ModDependency> dependencies = metadata.getDependencies();
+            if (dependencies.stream().map(ModDependency::getModId).toList().contains("carpet")){
+                mods.add(metadata.getId());
+            }
+        }
+        CARPET_ADDITION_MOD_IDS = mods;
     }
     @Override
     public void onInitialize() {
