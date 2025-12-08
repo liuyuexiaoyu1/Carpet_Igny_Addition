@@ -30,6 +30,7 @@ public class PressUseTask implements ITask {
     private int currentCycle = 0;
     private State currentState = State.PRESSING;
     private final ServerPlayer operator;
+    private boolean paused = false;
 
     private enum State {
         PRESSING,
@@ -67,6 +68,10 @@ public class PressUseTask implements ITask {
 
     @Override
     public Component getStatusText() {
+        if (paused) {
+            String base = totalCycles == -1 ? "§8[PAUSED] §7Infinite" : "§8[PAUSED] §7Cycle §f" + currentCycle + "/" + totalCycles;
+            return Component.literal(base + " §8| §7Press:§f" + pressDuration + "t §7Wait:§f" + intervalTicks + "t");
+        }
         String stateStr = switch (currentState) {
             case PRESSING -> "Pressing (" + tickCounter + "/" + pressDuration + ")";
             case WAITING -> "Waiting (" + tickCounter + "/" + intervalTicks + ")";
@@ -77,6 +82,24 @@ public class PressUseTask implements ITask {
         } else {
             return Component.literal("§7Cycle §f" + currentCycle + "/" + totalCycles +
                     " §8| §7Press:§f" + pressDuration + "t §7Wait:§f" + intervalTicks + "t §8| §e" + stateStr);
+        }
+    }
+
+    @Override
+    public void pause() {
+        if (isRunning && !paused) {
+            paused = true;
+            stopPressing();
+        }
+    }
+
+    @Override
+    public void resume() {
+        if (isRunning && paused) {
+            paused = false;
+            if (currentState == State.PRESSING) {
+                startPressing();
+            }
         }
     }
 
@@ -96,10 +119,16 @@ public class PressUseTask implements ITask {
     }
 
     @Override
+    public boolean isPaused() {
+        return paused;
+    }
+
+    @Override
     public MinecraftServer getServer() {
         return server;
     }
 
+    @Override
     public void start() {
         if (isRunning) return;
 
@@ -160,7 +189,7 @@ public class PressUseTask implements ITask {
 
     @Override
     public void tick() {
-        if (!isRunning) return;
+        if (!isRunning || paused) return;
 
         tickCounter++;
 

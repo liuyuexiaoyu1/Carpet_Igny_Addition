@@ -24,7 +24,7 @@ public abstract class AbstractNetworkAddonMixin {
     @SuppressWarnings("RedundantIfStatement")
     @WrapWithCondition(method = "lateInit", at = @At(value = "INVOKE", target = "Lnet/fabricmc/fabric/impl/networking/GlobalReceiverRegistry;startSession(Lnet/fabricmc/fabric/impl/networking/AbstractNetworkAddon;)V"))
     private boolean notStartSession_ifFakeClientConnection(GlobalReceiverRegistry<?> instance, AbstractNetworkAddon<?> addon) {
-        if ((Boolean.TRUE.equals(getCarpetOrgAdditionSetting())||IGNYSettings.fakePlayerSpawnMemoryLeakFix) && addon instanceof AbstractChanneledNetworkAddon<?>) {
+        if ((getCarpetOrgAdditionSetting()||IGNYSettings.fakePlayerSpawnMemoryLeakFix) && addon instanceof AbstractChanneledNetworkAddon<?>) {
             Connection connection = ((AbstractChanneledNetworkAddonAccessor) addon).getConnection();
             if (connection instanceof FakeClientConnection) {
                 return false;
@@ -35,7 +35,7 @@ public abstract class AbstractNetworkAddonMixin {
 
     @Unique
     private static Boolean getCarpetOrgAdditionSetting() {
-            if(IGNYServerMod.CARPET_ADDITION_MOD_IDS.contains("org")){
+            if(IGNYServerMod.CARPET_ADDITION_MOD_IDS.stream().anyMatch(id -> id != null && id.contains("org"))){
                 CarpetRule<?> carpetRule = CarpetServer.settingsManager.getCarpetRule("fakePlayerSpawnMemoryLeakFix");
                 if (carpetRule == null) {
                     return false;

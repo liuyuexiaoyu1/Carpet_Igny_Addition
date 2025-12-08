@@ -41,8 +41,8 @@ public class VaultTask implements ITask {
     private String logoutPlayerName;
     private String pendingFakeName = null;
     private final ServerPlayer operator;
-    private final int SPAWN_TIMEOUT_SECONDS=20;
-
+    private final int SPAWN_TIMEOUT_SECONDS = 20;
+    private boolean paused = false;
 
     private enum Stage {
         SPAWNING,
@@ -75,6 +75,9 @@ public class VaultTask implements ITask {
 
     @Override
     public Component getStatusText() {
+        if (paused) {
+            return Component.literal("§8[PAUSED] §7Cycle §f" + currentCycle + "/" + maxCycles);
+        }
         String status = switch (currentStage) {
             case SPAWNING -> "Spawning" + (pendingFakeName != null ? " (" + pendingFakeName + ")" : "");
             case RIGHT_CLICKING -> "Right-clicking";
@@ -85,40 +88,32 @@ public class VaultTask implements ITask {
     }
 
     @Override
-    public void stop() {
-        if (!isRunning) return;
-
-        isRunning = false;
-        cleanupCurrentPlayer();
-        pendingFakeName = null;
-
-        currentStage = Stage.SPAWNING;
-        stageTickCounter = 0;
-        totalTickCounter = 0;
-        currentCycle = 0;
-        if (INSTANCE_CACHE.values().stream().noneMatch(t -> !t.isStopped())) {
-            IGNYSettings.fakePlayerSpawnMemoryLeakFix = false;
+    public void pause() {
+        if (isRunning && !paused) {
+            paused = true;
+            if (currentFakePlayer instanceof carpet.fakes.ServerPlayerInterface spi) {
+                spi.getActionPack().stopAll();
+            }
         }
-        TaskManager.unregister(this);
-        INSTANCE_CACHE.remove(playerName);
     }
 
     @Override
-    public boolean isStopped() {
-        return !isRunning;
+    public void resume() {
+        if (isRunning && paused) {
+            paused = false;
+            if (currentStage == Stage.RIGHT_CLICKING) {
+                startRightClicking();
+            }
+        }
     }
 
     @Override
-    public MinecraftServer getServer() {
-        return server;
-    }
-
     public void start() {
         if (isRunning) return;
 
         ServerPlayer originalPlayer = server.getPlayerList().getPlayerByName(playerName);
         if (originalPlayer == null) {
-            sendMessage("§c[PlayerOperate] §6Vault§c: 玩家 §f" + playerName + " §c不在线",null);
+            sendMessage("§c[PlayerOperate] §6Vault§c: 玩家 §f" + playerName + " §c不在线", null);
             return;
         }
 
@@ -126,6 +121,7 @@ public class VaultTask implements ITask {
             sendMessage("§c[PlayerOperate] §6Vault§c: 玩家 §f" + playerName + " §c不是假人", null);
             return;
         }
+
         IGNYSettings.fakePlayerSpawnMemoryLeakFix = true;
         lastPosition = originalPlayer.position();
         lastYaw = originalPlayer.getYRot();
@@ -145,16 +141,11 @@ public class VaultTask implements ITask {
 
         sendMessage("§7[PlayerOperate] §6Vault§7: 已启动任务 §f" + playerName + " §7(maxCycles=" + maxCycles + ")",
                 "[PlayerOperate] Vault: 已启动任务 " + playerName + " (maxCycles=" + maxCycles + ")");
-
     }
 
     @Override
     public void tick() {
-        if (!isRunning) {
-            if (currentFakePlayer != null || pendingFakeName != null) {
-                cleanupCurrentPlayer();
-                pendingFakeName = null;
-            }
+        if (!isRunning || paused) {
             return;
         }
 
@@ -177,6 +168,40 @@ public class VaultTask implements ITask {
         }
     }
 
+    @Override
+    public void stop() {
+        if (!isRunning) return;
+
+        isRunning = false;
+        cleanupCurrentPlayer();
+        pendingFakeName = null;
+
+        currentStage = Stage.SPAWNING;
+        stageTickCounter = 0;
+        totalTickCounter = 0;
+        currentCycle = 0;
+        if (INSTANCE_CACHE.values().stream().allMatch(VaultTask::isStopped)) {
+            IGNYSettings.fakePlayerSpawnMemoryLeakFix = false;
+        }
+        TaskManager.unregister(this);
+        INSTANCE_CACHE.remove(playerName);
+    }
+
+    @Override
+    public boolean isStopped() {
+        return !isRunning;
+    }
+
+    @Override
+    public boolean isPaused() {
+        return paused;
+    }
+
+    @Override
+    public MinecraftServer getServer() {
+        return server;
+    }
+
     private void cleanupCurrentPlayer() {
         if (currentFakePlayer != null) {
             try {
@@ -184,7 +209,7 @@ public class VaultTask implements ITask {
                     spi.getActionPack().stopAll();
                 }
                 if (currentFakePlayer instanceof EntityPlayerMPFake) {
-                    currentFakePlayer.connection.onDisconnect(new DisconnectionDetails(Component.literal( "Vault cleanup")));
+                    currentFakePlayer.connection.onDisconnect(new DisconnectionDetails(Component.literal("Vault cleanup")));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -207,23 +232,19 @@ public class VaultTask implements ITask {
             pendingFakeName = playerName + "_" + currentCycle;
 
             try {
-                try {
-                    boolean success = EntityPlayerMPFake.createFake(
-                            pendingFakeName,
-                            server,
-                            lastPosition,
-                            lastYaw,
-                            lastPitch,
-                            dimension,
-                            GameType.SURVIVAL,
-                            false
-                    );
+                boolean success = EntityPlayerMPFake.createFake(
+                        pendingFakeName,
+                        server,
+                        lastPosition,
+                        lastYaw,
+                        lastPitch,
+                        dimension,
+                        GameType.SURVIVAL,
+                        false
+                );
 
-                    if (!success) {
-                        stop();
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                if (!success) {
+                    stop();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -237,12 +258,14 @@ public class VaultTask implements ITask {
                 startRightClicking();
                 return;
             }
+
             ServerTickRateManager trm = server.tickRateManager();
-            double NANOSECONDS_PER_MILLISECOND = ((double)server.getAverageTickTimeNanos())/ TimeUtil.NANOSECONDS_PER_MILLISECOND;
-            double TPS = 1000.0D / Math.max(trm.isSprinting()?0.0:trm.millisecondsPerTick(), NANOSECONDS_PER_MILLISECOND);
-            if (stageTickCounter >= TPS*SPAWN_TIMEOUT_SECONDS) {
+            double NANOSECONDS_PER_MILLISECOND = ((double) server.getAverageTickTimeNanos()) / TimeUtil.NANOSECONDS_PER_MILLISECOND;
+            double TPS = 1000.0D / Math.max(trm.isSprinting() ? 0.0 : trm.millisecondsPerTick(), NANOSECONDS_PER_MILLISECOND);
+            if (stageTickCounter >= TPS * SPAWN_TIMEOUT_SECONDS) {
                 stop();
-                sendMessage("§c[PlayerOperate] §6Vault§c: 玩家 §f" + playerName + " §c无法在 §f" + SPAWN_TIMEOUT_SECONDS + " §ctick内生成假人，停止任务","[PlayerOperate] Vault: 玩家 " + playerName + " 无法在 " + SPAWN_TIMEOUT_SECONDS + " tick内生成假人，停止任务");
+                sendMessage("§c[PlayerOperate] §6Vault§c: 玩家 §f" + playerName + " §c无法在 §f" + SPAWN_TIMEOUT_SECONDS + " §c秒内生成假人，停止任务",
+                        "[PlayerOperate] Vault: 玩家 " + playerName + " 无法在 " + SPAWN_TIMEOUT_SECONDS + " 秒内生成假人，停止任务");
             }
         }
     }
@@ -298,7 +321,7 @@ public class VaultTask implements ITask {
                 spi.getActionPack().start(EntityPlayerActionPack.ActionType.USE, null);
             }
             if (currentFakePlayer instanceof EntityPlayerMPFake) {
-                currentFakePlayer.connection.onDisconnect(new DisconnectionDetails(Component.literal( "Vault cycle completed")));
+                currentFakePlayer.connection.onDisconnect(new DisconnectionDetails(Component.literal("Vault cycle completed")));
             }
             currentFakePlayer = null;
         }
@@ -316,7 +339,7 @@ public class VaultTask implements ITask {
     }
 
     private void sendMessage(String message, @Nullable String consoleMessage) {
-        if (operator.isAlive()) {
+        if (operator != null && operator.isAlive()) {
             this.operator.sendSystemMessage(Component.literal(message));
         }
         if (consoleMessage != null) {
@@ -324,9 +347,15 @@ public class VaultTask implements ITask {
         }
     }
 
-    public String getPendingFakeName() { return pendingFakeName; }
-    public ServerPlayer getCurrentFakePlayer() { return currentFakePlayer; }
-    public String getLogoutPlayerName() { return logoutPlayerName; }
+    public String getPendingFakeName() {
+        return pendingFakeName;
+    }
 
+    public ServerPlayer getCurrentFakePlayer() {
+        return currentFakePlayer;
+    }
 
+    public String getLogoutPlayerName() {
+        return logoutPlayerName;
+    }
 }

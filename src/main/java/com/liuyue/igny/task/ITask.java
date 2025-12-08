@@ -7,8 +7,12 @@ public interface ITask {
     String getPlayerName();
     String getTaskType();
     Component getStatusText();
+    void start();
     void stop();
     boolean isStopped();
+    boolean isPaused();
+    void pause();
+    void resume();
     MinecraftServer getServer();
     void tick();
 }
