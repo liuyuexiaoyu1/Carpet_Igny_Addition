@@ -39,6 +39,10 @@ public class PlayerOperateCommand {
                                         .executes(PlayerOperateCommand::resumeAllTasks)
                         )
                         .then(
+                                Commands.literal("stopAll")
+                                        .executes(PlayerOperateCommand::stopAllTasks)
+                        )
+                        .then(
                                 Commands.argument("player", StringArgumentType.string())
                                         .suggests(PlayerOperateCommand::suggestOnlinePlayers)
                                         .then(Commands.literal("task")
@@ -86,6 +90,35 @@ public class PlayerOperateCommand {
                                         .executes(PlayerOperateCommand::listAllTasks)
                         )
         );
+    }
+
+    private static int stopAllTasks(CommandContext<CommandSourceStack> context) {
+        CommandSourceStack source = context.getSource();
+        List<ITask> tasks = TaskManager.getAllActiveTasks();
+
+        if (tasks.isEmpty()) {
+            source.sendFailure(Component.literal("§c没有正在运行的任务"));
+            return 0;
+        }
+
+        int stoppedCount = 0;
+
+        for (ITask task : tasks) {
+            if (!task.isStopped()) {
+                task.stop();
+                stoppedCount++;
+            }
+        }
+
+        String message;
+        if (stoppedCount > 0) {
+            message = "§7[PlayerOperate] §c已停止 §f" + stoppedCount + " §c个任务";
+        } else {
+            message = "§7[PlayerOperate] §c没有可以停止的任务";
+        }
+
+        source.sendSuccess(() -> Component.literal(message), false);
+        return stoppedCount;
     }
 
     private static int pauseAllTasks(CommandContext<CommandSourceStack> context) {
@@ -297,6 +330,8 @@ public class PlayerOperateCommand {
                         .append(createGlobalControlButton("§6[暂停所有]", "/playerOperate pauseAll", "暂停所有任务"))
                         .append(Component.literal(" "))
                         .append(createGlobalControlButton("§a[继续所有]", "/playerOperate resumeAll", "继续所有任务"))
+                        .append(Component.literal(" "))
+                        .append(createGlobalControlButton("§c[停止所有]","/playerOperate stopAll","停止所有任务"))
                         .append(Component.literal("\n")));
 
         source.sendSuccess(() -> header, false);
