@@ -1,79 +1,94 @@
-name: Bug Report
-description: Something doesn't seem correct and it might be a bug
-labels: []
+name: Bug 报告
+description: 发现了疑似错误或异常行为
+labels: [bug]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        💬 提交前请务必：
+        - 使用 **最新的开发构建（Dev Build）** 测试；
+        - 搜索已有 Issue，避免重复。
+
   - type: textarea
     id: description
     attributes:
-      label: Bug description
+      label: Bug 描述
       description: |
-        A clear and concise description of what the bug is.
-        Is it a game crash, an unexpected behavior, or has something gone wrong?
-        If applicable, add screenshots to help explain the bug.
-      placeholder: Tell us what you see!
+        清晰简洁地说明你遇到的问题。
+        是游戏崩溃？行为异常？还是其他错误？
+        如有帮助，请附上截图。
+      placeholder: 告诉我们你看到了什么！
     validations:
       required: true
+
   - type: textarea
     id: to-reproduce
     attributes:
-      label: Steps to reproduce
-      description: Steps to reproduce the bug
+      label: 复现步骤
+      description: 详细描述如何重现此 Bug
       placeholder: |
-        1. Create a world
-        2. Wait until midnight
-        3. Hug a creeper
+        1. 创建一个新世界
+        2. 等待到午夜
+        3. 拥抱一只苦力怕
     validations:
       required: true
+
   - type: textarea
     id: expected-behavior
     attributes:
-      label: Expected behavior
-      description: What did you expect to happen?
-      placeholder: The creeper explodes
+      label: 预期行为
+      description: 你原本期望发生什么？
+      placeholder: 苦力怕应该爆炸
+
   - type: textarea
     id: actual-behavior
     attributes:
-      label: Actual behavior
-      description: What actually happened?
-      placeholder: The creeper launches itself into the sky
+      label: 实际行为
+      description: 实际发生了什么？
+      placeholder: 苦力怕把自己发射到了天上
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant logs
+      label: 相关日志
       description: |-
-        If it's a crash, send the corresponding Minecraft log in the `logs` folder, or crash report in the `crash-reports` folder, here.
-        Please upload the log file as an attachment, or upload the log to [pastebin](https://pastebin.com/) / [mclo.gs](https://mclo.gs/) and paste the url here.
-        Please refrain from pasting the entire log file directly.
-        Leave empty if there is none.
-      placeholder: https://pastebin.com/J6b7lKxR 
+        如果是崩溃问题，请提供 `logs` 文件夹中的最新日志，或 `crash-reports` 中的崩溃报告。
+        请将日志上传至 [Pastebin](https://pastebin.com/) 或 [mclo.gs](https://mclo.gs/)，并在此粘贴链接。
+        ❌ 请勿直接粘贴整份日志内容。
+        若无日志，请留空。
+      placeholder: https://pastebin.com/J6b7lKxR
+
   - type: input
     id: minecraft-version
     attributes:
-      label: Minecraft version
-      description: The Minecraft version(s) where this bug occurs in.
-      placeholder: 1.15.2
+      label: Minecraft 版本
+      description: 出现此 Bug 的 Minecraft 游戏版本
+      placeholder: 1.21.1
     validations:
       required: true
+
   - type: input
     id: mod-version
     attributes:
-      label: TemplateMod version
-      description: The TemplateMod version(s) where this bug occurs in.
-      placeholder: 1.2.3
+      label: Carpet-Igny-Addition 版本
+      description: 出现此 Bug 的模组版本（建议使用 GitHub Actions 最新构建）
+      placeholder: dev-123 或 v1.2.3
     validations:
       required: true
+
   - type: textarea
     id: other-information
     attributes:
-      label: Other information
-      description: Other useful information to this bug report, e.g. other related mod version(s). Leave empty if there is none.
-      placeholder: The issue only occurs if the player is in survival mode
+      label: 其他信息
+      description: 其他有助于排查的信息，例如：是否安装了其他模组、仅在特定规则开启时出现等。若无，请留空。
+      placeholder: 仅当玩家处于生存模式且启用了某规则时才会触发
+
   - type: checkboxes
     id: check-list
     attributes:
-      label: Check list
+      label: 检查清单
       options:
-        - label: I have verified that the issue persists in the latest version of the mod.
+        - label: 我已使用模组的最新版本（包括 GitHub Actions 的最新 Dev Build）验证，问题仍然存在。
           required: true
-        - label: I have searched the existing issues and confirmed that this is not a duplicate.
+        - label: 我已搜索现有 Issue，确认这不是重复报告。
           required: true

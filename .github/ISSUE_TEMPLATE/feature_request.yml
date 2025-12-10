@@ -1,25 +1,52 @@
-name: Feature Request
-description: Suggest an idea for this project
-labels: []
+name: 功能建议
+description: 为本项目提出一个新功能点子
+labels: [enhancement]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        💡 提交前请先：
+        - 搜索已有 Issue，避免重复；
+        - **下载最新的开发构建（Dev Build）**，确认该功能尚未实现。
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: 功能存在性验证
+      description: 请确认你已完成以下检查
+      options:
+        - label: 我已从 [GitHub Actions 最新构建](https://github.com/liuyuexiaoyu1/Carpet-Igny-Addition/actions) 下载并测试了最新版本，确认没有此功能
+          required: true
+
   - type: textarea
     id: motivation
     attributes:
-      label: Motivation
-      description: Why do you want this feature? What problem do you want to solve? How can the suggested feature help with that?
-      placeholder: Tell us what you want!
+      label: 动机（为什么需要这个功能？）
+      description: 你为什么想要这个功能？它能解决什么问题？这个建议的功能如何帮助你？
+      placeholder: 告诉我们你的想法！
     validations:
       required: true
+
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: Describe the feature you want, as detailed as possible
-      placeholder: I want to see a fancy starry sky when I look up at midnight.
+      label: 功能描述
+      description: 尽可能详细地描述你希望实现的功能（包括行为、配置方式、命令或规则名称等）
+      placeholder: 例如：新增一个 Carpet 规则 `instant-night-skip`，当玩家在主世界执行 /skipnight 时立即跳过夜晚。
     validations:
       required: true
+
+  - type: checkboxes
+    id: willing-to-contribute
+    attributes:
+      label: 参与意愿
+      description: 是否愿意协助实现此功能？
+      options:
+        - label: 我愿意尝试提交 Pull Request 来实现此功能
+          required: false
+
   - type: textarea
     id: other-information
     attributes:
-      label: Other information
-      description: Other useful information to this feature request. Leave empty if there is none.
+      label: 其他信息
+      description: 其他有用的信息，如相关截图、参考模组、技术方案思路等。如果没有，请留空。
