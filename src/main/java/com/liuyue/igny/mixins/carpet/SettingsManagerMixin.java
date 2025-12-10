@@ -88,12 +88,16 @@ public abstract class SettingsManagerMixin {
 
     @Inject(method = "setRule",at= @At(value = "INVOKE", target = "Lcarpet/api/settings/CarpetRule;set(Lnet/minecraft/commands/CommandSourceStack;Ljava/lang/String;)V"))
     private void onRuleChanged(CommandSourceStack source, CarpetRule<?> rule, String stringValue, CallbackInfoReturnable<Integer> cir){
-        RuleChangeTracker.ruleChanged(source, rule, stringValue);
+        if(IGNYSettings.showRuleChangeHistory) {
+            RuleChangeTracker.ruleChanged(source, rule, stringValue);
+        }
     }
 
     @Inject(method="setDefault",at= @At(value = "INVOKE", target = "Lcarpet/api/settings/CarpetRule;set(Lnet/minecraft/commands/CommandSourceStack;Ljava/lang/String;)V"))
     private void onDefaultChanged(CommandSourceStack source, CarpetRule<?> rule, String stringValue, CallbackInfoReturnable<Integer> cir){
-        RuleChangeTracker.ruleChanged(source, rule, stringValue);
+        if(IGNYSettings.showRuleChangeHistory) {
+            RuleChangeTracker.ruleChanged(source, rule, stringValue);
+        }
     }
 
     @Unique

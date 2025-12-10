@@ -1,6 +1,5 @@
 package com.liuyue.igny.tracker;
 
-import com.liuyue.igny.IGNYSettings;
 import com.liuyue.igny.data.RuleChangeDataManager;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
@@ -12,7 +11,6 @@ public class RuleChangeTracker {
     }
 
     public static void ruleChanged(CommandSourceStack source, carpet.api.settings.CarpetRule<?> rule, String userInput) {
-        if(IGNYSettings.showRuleChangeHistory) {
             String sourceName = getSourceName(source);
             long timestamp = System.currentTimeMillis();
 
@@ -23,7 +21,6 @@ public class RuleChangeTracker {
                     sourceName,
                     timestamp
             );
-        }
     }
 
     private static String getSourceName(CommandSourceStack source) {
