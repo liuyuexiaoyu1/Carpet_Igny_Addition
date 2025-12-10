@@ -1,14 +1,13 @@
 package com.liuyue.igny.utils.rule.playerOperationLimiter;
 
+import carpet.patches.EntityPlayerMPFake;
 import com.liuyue.igny.IGNYSettings;
 import net.minecraft.server.level.ServerPlayer;
 import carpet.fakes.ServerPlayerInterface;
 
 public class PlayerOperationLimiterUtil {
 
-    public static boolean isFakePlayer(ServerPlayer player) {
-        return ((ServerPlayerInterface) player).isCarpetFake();
-    }
+    public static boolean isFakePlayer(ServerPlayer player) {return player instanceof EntityPlayerMPFake;}
 
     public static boolean canBreakMore(ServerPlayer player, SafeServerPlayerEntity safe) {
         int limit = isFakePlayer(player)
