@@ -54,7 +54,6 @@ jobs:
         run: |
           URL="${{ steps.link.outputs.download_url }}"
           ESCAPED_URL=$(echo "$URL" | sed 's/[\/&]/\\&/g')
-          REPO_ESCAPED=$(echo "${{ github.repository }}" | sed 's/[\/&]/\\&/g')
 
           sed -i "s|\[GitHub Action\]([^)]*)|[GitHub Action]($URL)|g" README.md
           sed -i "s|\[GitHub Action\]([^)]*)|[GitHub Action]($URL)|g" README_en.md
