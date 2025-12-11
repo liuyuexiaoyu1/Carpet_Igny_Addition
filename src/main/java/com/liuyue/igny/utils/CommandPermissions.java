@@ -15,7 +15,7 @@ public class CommandPermissions {
         }
 
         if (!(targetPlayer instanceof EntityPlayerMPFake)) {
-            //#if MC>=12111
+            //#if MC >= 12111
             //$$ return Commands.LEVEL_GAMEMASTERS.check(source.permissions());
             //#else
             return source.hasPermission(2);
@@ -27,7 +27,7 @@ public class CommandPermissions {
         return switch (ruleValue.toLowerCase()) {
             case "true" -> true;
             case "false" -> false;
-            //#if MC>=12111
+            //#if MC >= 12111
             //$$ case "0" -> Commands.LEVEL_ALL.check(source.permissions());
             //$$ case "1" -> Commands.LEVEL_MODERATORS.check(source.permissions());
             //$$ case "3" -> Commands.LEVEL_ADMINS.check(source.permissions());
@@ -68,7 +68,7 @@ public class CommandPermissions {
     }
 
     public static boolean hasPermissionLevel(CommandSourceStack source, int level) {
-        //#if MC>=12111
+        //#if MC >= 12111
         //$$ return switch (level) {
         //$$     case 0 -> Commands.LEVEL_ALL.check(source.permissions());
         //$$     case 1 -> Commands.LEVEL_MODERATORS.check(source.permissions());
@@ -83,7 +83,7 @@ public class CommandPermissions {
     }
 
     public static boolean canDropEnderChest(CommandSourceStack source) {
-        //#if MC>=12111
+        //#if MC >= 12111
         //$$ return source == null || Commands.LEVEL_GAMEMASTERS.check(source.permissions());
         //#else
         return source == null || source.hasPermission(2);

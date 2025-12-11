@@ -100,11 +100,13 @@ public class IGNYSettings
     public static Boolean tntMinecartEmptyDamageSourceFix = false;
     //#endif
 
+    //#if MC < 12111
     @Rule(
             categories = {IGNY,FEATURE,BUGFIX},
             options = {"false", "true"}
     )
     public static Boolean fakePlayerBoatYawFix = false;
+    //#endif
 
     @Rule(
             categories = {IGNY,FEATURE},
