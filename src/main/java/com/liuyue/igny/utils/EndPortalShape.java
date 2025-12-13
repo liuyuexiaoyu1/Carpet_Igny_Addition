@@ -14,8 +14,8 @@ public class EndPortalShape {
 
     private final Level level;
     private final BlockPos innerOrigin;
-    private final int width;   // 内部宽度（x方向）
-    private final int height;  // 内部高度（z方向）
+    private final int width;
+    private final int height;
 
     private EndPortalShape(Level level, BlockPos innerOrigin, int width, int height) {
         this.level = level;
