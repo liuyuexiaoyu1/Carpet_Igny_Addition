@@ -390,7 +390,7 @@ If the player is in creative mode, this rule can also be used in the End dimensi
 
 ## placeComposterCompost `🐛Beta`
 
-hen placing the composter, the compost level should be set to a value within the specified range, with a minimum of 0 and a maximum of 8.
+hen placing the composter, the compost level should be set to a value within the specified range, with a minimum of 0 and a maximum of 8,Triggered when the sneak button is pressed.
 
 - Type: `int`
 - Default value: `0`

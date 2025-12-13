@@ -158,5 +158,5 @@
   "carpet.rule.generateNetherPortal.extra.2": "若右键下界传送门方块，则只能在它的4个边放置下界传送门方块",
   "carpet.rule.generateNetherPortal.extra.3": "若玩家为创造模式，那么末地维度可用该规则",
   "carpet.rule.placeComposterCompost.name": "放置堆肥桶堆肥",
-  "carpet.rule.placeComposterCompost.desc": "放置堆肥桶时堆肥到规则设置的值，范围为0-8"
+  "carpet.rule.placeComposterCompost.desc": "放置堆肥桶时堆肥到规则设置的值，范围为0-8，按着潜行键时触发"
 }

@@ -116,5 +116,5 @@
   "carpet.rule.generateNetherPortal.extra.1": "If right-clicking the top or bottom face of an obsidian block, the generated nether portal will face the player's direction",
   "carpet.rule.generateNetherPortal.extra.2": "If right-clicking a nether portal block, placement is only allowed on its four side faces",
   "carpet.rule.generateNetherPortal.extra.3": "If the player is in creative mode, this rule can also be used in the End dimension",
-  "carpet.rule.placeComposterCompost.desc": "When placing the composter, the compost level should be set to a value within the specified range, with a minimum of 0 and a maximum of 8"
+  "carpet.rule.placeComposterCompost.desc": "When placing the composter, the compost level should be set to a value within the specified range, with a minimum of 0 and a maximum of 8,Triggered when the sneak button is pressed"
 }
