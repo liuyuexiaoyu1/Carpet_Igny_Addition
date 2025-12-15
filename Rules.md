@@ -436,7 +436,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `CREATIVE`, `FEATURE`
 
-## 瞬时宝库生成战利品 (instantVaultSpawnLoot) `🐛Beta`
+## 瞬时宝库生成战利品 (instantVaultSpawnLoot) `🐛Beta` `MC>=1.20.5`
 
 宝库生成战利品时跳过动画，直接生成所有战利品。
 
@@ -444,3 +444,30 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 默认值: `false`
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `CREATIVE`, `FEATURE`
+
+## 试炼刷怪笼战利品倍率 (trialSpawnerLootMultiplier) `🐛Beta` `MC>=1.20.5`
+
+试炼刷怪笼的战利品倍率。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`
+
+## 试炼刷怪笼掉落钥匙概率 (trialSpawnerDropKeyProbability) `🐛Beta` `MC>=1.20.5`
+
+试炼刷怪笼的战利品掉落试炼钥匙的概率。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`
+
+## 瞬时试炼刷怪笼生成战利品 (instantTrialSpawnerSpawnLoot) `🐛Beta` `MC>=1.20.5`
+
+试炼刷怪笼生成奖励时跳过动画，直接生成所有战利品。
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `false`, `true`
+- 分类: `IGNY`, `FEATURE`

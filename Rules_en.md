@@ -443,7 +443,7 @@ Allows rectangular End portals (each side must be at least 3 blocks long). Only 
 - Suggested options: `false`, `true`
 - Categories: `IGNY`, `CREATIVE`, `FEATURE`
 
-## instantVaultSpawnLoot `🐛Beta`
+## instantVaultSpawnLoot `🐛Beta` `MC>=1.20.5`
 
 When generating loot from the vault, skip the animation and directly generate all loot.
 
@@ -451,3 +451,30 @@ When generating loot from the vault, skip the animation and directly generate al
 - Default value: `false`
 - Suggested options: `false`, `true`
 - Categories: `IGNY`, `CREATIVE`, `FEATURE`
+
+## trialSpawnerLootMultiplier `🐛Beta` `MC>=1.20.5`
+
+The loot multiplier after the trial spawner generates rewards.
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
+
+## trialSpawnerDropKeyProbability `🐛Beta` `MC>=1.20.5`
+
+The probability of a Trial Key dropping as a loot from a Trial Spawner.
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`
+
+## instantTrialSpawnerSpawnLoot `🐛Beta` `MC>=1.20.5`
+
+Skip the animation when the trial spawner generates loot, and directly spawn all the spoils.
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `false`, `true`
+- Categories: `IGNY`, `FEATURE`

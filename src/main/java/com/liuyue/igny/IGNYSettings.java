@@ -307,4 +307,20 @@ public class IGNYSettings
             options = {"false", "true"}
     )
     public static Boolean instantVaultSpawnLoot = false;
+
+    @Rule(
+            categories = {IGNY, FEATURE}
+    )
+    public static int trialSpawnerLootMultiplier = 1;
+
+    @Rule(
+            categories = {IGNY, FEATURE}
+    )
+    public static int trialSpawnerDropKeyProbability = -1;
+
+    @Rule(
+            categories = {IGNY, FEATURE},
+            options = {"false", "true"}
+    )
+    public static Boolean instantTrialSpawnerSpawnLoot = false;
 }

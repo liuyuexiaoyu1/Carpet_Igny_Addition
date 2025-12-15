@@ -36,6 +36,7 @@
     "rule.happyGhastNoClip.ShulkerBoxBlockEntityMixin",
     "rule.happyGhastNoClip.StandingAndWallBlockItemMixin",
     "rule.instantSpawnEnderDragon.EndDragonFightMixin",
+    "rule.instantTrialSpawnerSpawnLoot.TrialSpawnerStateMixin",
     "rule.instantVaultSpawnLoot.VaultBlockEntityServerInvoker",
     "rule.instantVaultSpawnLoot.VaultBlockEntityServerMixin",
     "rule.killFakePlayerRemoveVehicle.EntityPlayerMPFakeMixin",
@@ -67,7 +68,9 @@
     "rule.skeletonsPickupSwordsReintroduced.MobMixin",
     "rule.tntMinecartEmptyDamageSourceFix.EntityInvoker",
     "rule.tntMinecartEmptyDamageSourceFix.MinecartTNTMixin",
+    "rule.trialSpawnerCoolDown.TrialSpawnerDataMixin",
     "rule.trialSpawnerCoolDown.TrialSpawnerMixin",
+    "rule.TrialSpawnerLoot.TrialSpawnerMixin",
     "rule.wardenNeverDig.WardenMixin",
     "rule.wetSpongeCanAbsorbLava.BlockBehaviourNeighborChangedMixin",
     "rule.zombifiedPiglinDropLootIfAngryReintroduced.ZombifiedPiglinEntityMixin"
