@@ -477,7 +477,7 @@ When the sound suppressor has no redstone signal input, it has no effect.
 - Suggested options: `false`, `true`
 - Categories: `IGNY`, `FEATURE`
 
-## twoChangedRuleValueSetDefault `🐛Beta`
+## twoChangedRuleValueSetDefault
 
 When changing a rule value with the /carpet command, if the new value is the same as the previous one, reset it to the default.
 

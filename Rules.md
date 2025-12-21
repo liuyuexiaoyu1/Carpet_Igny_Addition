@@ -474,7 +474,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 - 参考选项: `false`, `true`
 - 分类: `IGNY`, `FEATURE`
 
-## 两次更改规则值设置默认 (twoChangedRuleValueSetDefault) `🐛Beta`
+## 两次更改规则值设置默认 (twoChangedRuleValueSetDefault)
 
 当使用/carpet指令更改规则值时，与更改前的值相同就设为默认。
 
