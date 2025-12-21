@@ -1,10 +1,11 @@
 plugins {
 	id 'maven-publish'
-	id 'fabric-loom' version '1.13-SNAPSHOT' apply false
+    id 'fabric-loom' version '1.14-SNAPSHOT' apply false
+    id 'net.fabricmc.fabric-loom-remap' version '1.14-SNAPSHOT' apply false
 
 	// https://github.com/ReplayMod/preprocessor
 	// https://github.com/Fallen-Breath/preprocessor
-	id 'com.replaymod.preprocess' version 'd452ef7612'
+	id 'com.replaymod.preprocess' version 'c5abb4fb12'
 }
 
 preprocess {
@@ -22,6 +23,7 @@ preprocess {
 	def mc1218 = createNode('1.21.8', 1_21_08, '')
 	def mc12110 = createNode('1.21.10', 1_21_10, '')
     def mc12111 = createNode('1.21.11', 1_21_11, '')
+    def mc260100 = createNode('26.1', 26_01_00, '')
 
     mc119 .link(mc1201, file('versions/mapping-1.19-1.20.1.txt'))
     mc1201.link(mc1202, file('versions/mapping-1.20.1-1.20.2.txt'))
@@ -34,6 +36,11 @@ preprocess {
     mc1215.link(mc1218, file('versions/mapping-1.21.5-1.21.8.txt'))
     mc1218.link(mc12110, file('versions/mapping-1.21.8-1.21.10.txt'))
     mc12110.link(mc12111, file('versions/mapping-1.21.10-1.21.11.txt'))
+    mc12111.link(mc260100, file('versions/mapping-1.21.11-26.1.txt'))
+
+    for (final def node in getNodes()) {
+        findProject(node.project).ext.mcVersion = node.mcVersion
+    }
 }
 
 tasks.register('buildAndGather') {

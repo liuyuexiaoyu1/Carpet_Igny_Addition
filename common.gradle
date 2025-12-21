@@ -1,8 +1,9 @@
-apply plugin: 'maven-publish'
-apply plugin: 'fabric-loom'
-apply plugin: 'com.replaymod.preprocess'
+final int mcVersion = project.mcVersion
+final boolean unobfuscated = mcVersion >= 26_00_00
 
-int mcVersion = project.mcVersion
+apply plugin: 'maven-publish'
+apply plugin: unobfuscated ? 'net.fabricmc.fabric-loom' : 'net.fabricmc.fabric-loom-remap'
+apply plugin: 'com.replaymod.preprocess'
 
 repositories {
 	maven {
@@ -21,26 +22,46 @@ configurations {
 	modRuntimeOnly.exclude group: 'net.fabricmc', module: 'fabric-loader'
 }
 
+def isNewStyleVersion = !project.minecraft_version.startsWith("1")
 dependencies {
+    def processDependency = { dep ->
+        // https://github.com/FabricMC/fabric-loader/issues/783
+        if (dep instanceof ModuleDependency && !(dep.group == 'net.fabricmc' && dep.name == 'fabric-loader')) {
+            dep.exclude group: 'net.fabricmc', module: 'fabric-loader'
+            dep.exclude group: 'com.github.astei', module: 'lazydfu'
+            dep.exclude group: 'com.github.2No2Name', module: 'McTester'
+        }
+        return dep
+    }
+    def autoImplementation = { Object... args -> processDependency(unobfuscated ? implementation(*args) : modImplementation(*args)) }
+
     // Minecraft
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    // Mojmap
-	mappings loom.officialMojangMappings()
-    // mixin extras
-	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
-    // fabric
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    // carpet
-	modImplementation "carpet:fabric-carpet:${project.carpet_core_version}"
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    if (!unobfuscated) {
+        mappings loom.layered() {
+            officialMojangMappings()
+        }
+    }
+    // Mixin Extras
+    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
+    autoImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    autoImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Carpet
+    autoImplementation "carpet:fabric-carpet:${project.carpet_core_version}"
+
     // SQLite JDBC
-    modImplementation("maven.modrinth:minecraft-sqlite-jdbc:UAFoGR0O")
+    autoImplementation("maven.modrinth:minecraft-sqlite-jdbc:UAFoGR0O")
 }
 
 String MIXIN_CONFIG_PATH = 'carpet_igny_addition.mixins.json'
 String LANG_DIR = 'assets/carpet_igny_addition/lang'
 JavaVersion JAVA_COMPATIBILITY
+if (isNewStyleVersion){
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_25
+} else{
 	JAVA_COMPATIBILITY = JavaVersion.VERSION_21
+}
 
 JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
 
@@ -88,6 +109,7 @@ processResources {
 	inputs.property "id", project.mod_id
 	inputs.property "name", project.mod_name
 	inputs.property "version", fullModVersion
+    inputs.property "carpet_dependency", project.carpet_dependency
 	inputs.property "minecraft_dependency", project.minecraft_dependency
 
 	filesMatching("fabric.mod.json") {
@@ -95,6 +117,7 @@ processResources {
 				"id": project.mod_id,
 				"name": project.mod_name,
 				"version": fullModVersion,
+                "carpet_dependency": project.carpet_dependency,
 				"minecraft_dependency": project.minecraft_dependency,
 		]
 		expand valueMap
