@@ -1,13 +1,28 @@
 package com.liuyue.igny;
 
 
+import carpet.api.settings.CarpetRule;
 import carpet.api.settings.Rule;
+import carpet.api.settings.Validator;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static com.liuyue.igny.utils.IGNYRuleCategory.*;
 
 
 public class IGNYSettings
 {
+
+    public static Set<String> CRAMMING_ENTITIES = new HashSet<>();
+
     //假玩家生成内存泄露修复
     public static boolean fakePlayerSpawnMemoryLeakFix = false;
 
@@ -192,28 +207,6 @@ public class IGNYSettings
     //#endif
 
     @Rule(
-            categories = {IGNY, OPTIMIZATION, FEATURE},
-            options = {"false", "true"}
-    )
-    public static Boolean optimizedPiglin = false;
-
-    @Rule(
-            categories = {IGNY,OPTIMIZATION,FEATURE}
-    )
-    public static Integer optimizedPiglinLimit = 100;
-
-    @Rule(
-            categories = {IGNY, OPTIMIZATION, FEATURE},
-            options = {"false", "true"}
-    )
-    public static Boolean optimizedWarden = false;
-
-    @Rule(
-            categories = {IGNY,OPTIMIZATION,FEATURE}
-    )
-    public static Integer optimizedWardenLimit = 100;
-
-    @Rule(
             categories = {IGNY, SURVIVAL, FEATURE},
             options = {"0", "1", "2", "5", "10"}
     )
@@ -324,4 +317,58 @@ public class IGNYSettings
             options = {"false", "true"}
     )
     public static Boolean twoChangedRuleValueSetDefault = false;
+
+    @Rule(
+            categories = {IGNY, OPTIMIZATION, FEATURE},
+            options = {"#none", "minecraft:warden", "minecraft:piglin", "minecraft:warden,minecraft:piglin"},
+            validators = CrammingEntityValidator.class,
+            strict = false
+    )
+    public static String optimizedEntityList = "#none";
+
+    @Rule(
+            categories = {IGNY,OPTIMIZATION,FEATURE}
+    )
+    public static Integer optimizedEntityLimit = 100;
+
+    public static class CrammingEntityValidator extends Validator<String> {
+        @Override
+        public String validate(CommandSourceStack source, CarpetRule<String> rule, String newValue, String string) {
+            try {
+                if (newValue == null || newValue.equals("#none")) {
+                    CRAMMING_ENTITIES.clear();
+                    return "#none";
+                }
+
+                if (source != null) {
+                    var registry = source.getServer().registryAccess().registryOrThrow(Registries.ENTITY_TYPE);
+
+                    CRAMMING_ENTITIES = Arrays.stream(newValue.split(","))
+                            .map(String::trim)
+                            .filter(s -> !s.isEmpty())
+                            .peek(name -> {
+                                if (!isValidEntityName(registry, name)) {
+                                    source.sendFailure(Component.translatable("igny.settings.failure.unknown_entity", name));
+                                    throw new IllegalArgumentException(Component.translatable("igny.settings.failure.unknown_entity", newValue).getString());
+                                }
+                            })
+                            .collect(Collectors.toSet());
+                    return newValue;
+                }
+            } catch (IllegalArgumentException e){
+                return "#none";
+            }
+            return "#none";
+        }
+
+        private boolean isValidEntityName(net.minecraft.core.Registry<EntityType<?>> registry, String name) {
+            try {
+                ResourceLocation id = ResourceLocation.tryParse(name);
+                return id != null && registry.containsKey(id);
+            } catch (Exception e) {
+                return false;
+            }
+        }
+    }
+
 }
