@@ -225,7 +225,7 @@ cantrade：当载具上没有村民或者流浪商人时移除载具，其他实
 
 ## 玩家动作指令 (commandPlayerOperate)
 
-使用/playerManager命令来控制玩家动作。
+使用/PlayerOperate命令来控制玩家动作。
 
 - 类型: `string`
 - 默认值: `ops`
